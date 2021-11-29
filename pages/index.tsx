@@ -94,7 +94,7 @@ export default function Home() {
                 </PanelGroup>
                 <PanelGroup className="">
                   <div className="flex flex-auto">
-                  <LED size={6} />
+                  {/* <LED size={6} /> */}
                   <p>feed hold / cycle start</p>
                   </div>
                 </PanelGroup>
