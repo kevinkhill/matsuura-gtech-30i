@@ -1,13 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 
-import LED from "../components/LED";
+import { rand } from "../core/util";
 import Button from "../components/Button";
 import PanelGroup from "../components/PanelGroup";
 import PanelIndicator from "../components/PanelIndicator";
 
 export default function Home() {
-  const leds = {
+  const [leds, setLeds] = useState({
     thing1: false,
     thing2: true,
     thing3: false,
@@ -15,18 +15,18 @@ export default function Home() {
     thing5: true,
     thing6: false,
     thing7: true,
-    thing8: true,
-  };
+    thing8: false,
+  });
 
   useEffect(() => {
     setInterval(() => {
-      const rand = (min, max) => Math.floor(Math.random() * (max - min) + min);
       const n = rand(1, 8);
       const val = leds[`thing${n}`];
       console.log(n, val);
       leds[`thing${n}`] = !val;
+      setLeds(leds);
     }, 1000);
-    // console.log("useEffect");
+    console.log("useEffect");
   }, [""]);
 
   return (
@@ -94,8 +94,7 @@ export default function Home() {
                 </PanelGroup>
                 <PanelGroup className="">
                   <div className="flex flex-auto">
-                  {/* <LED size={6} /> */}
-                  <p>feed hold / cycle start</p>
+                    <p>feed hold / cycle start</p>
                   </div>
                 </PanelGroup>
               </div>

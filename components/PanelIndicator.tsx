@@ -1,15 +1,19 @@
 import LED from "./LED";
 
-type PanelIndicator = {
+type PanelIndicatorProps = {
   on: boolean;
   label: string;
 };
 
-const PanelIndicator: React.FC<PanelIndicator> = ({ on, label }) => {
+const PanelIndicator: React.FC<PanelIndicatorProps> = ({ on, label }) => {
   return (
-    <div className="flex justify-evenly items-baseline">
-      <LED on={on ?? false} />
-      <span className="h-2 text-white">{label}</span>
+    <div className="h-6 p-1 flex">
+      <div className="p-2 flex-shrink">
+        <LED on={on ?? false} />
+      </div>
+      <div className="flex-shrink">
+        <span className="text-white">{label}</span>
+      </div>
     </div>
   );
 };
