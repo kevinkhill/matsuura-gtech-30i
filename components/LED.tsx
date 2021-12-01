@@ -1,4 +1,4 @@
-import clsx from "clsx";
+// import clsx from "clsx";
 
 type LedProps = {
   on: boolean;
@@ -12,7 +12,7 @@ const LED: React.FC<LedProps> = ({ on, size, classes }: LedProps) => {
   const D = R * 2;
 
   return (
-    <svg width={D + 2} className={classes}>
+    <svg width={D + 2} height={D + 2} className={classes}>
       <circle
         cx={R + 1}
         cy={R + 1}

@@ -12,7 +12,7 @@ const PanelIndicator: React.FC<PanelIndicatorProps> = ({ on, label }) => {
         <LED on={on ?? false} />
       </div>
       <div className="flex-shrink">
-        <span className="text-white">{label}</span>
+        <span className="text-xs text-white">{label}</span>
       </div>
     </div>
   );

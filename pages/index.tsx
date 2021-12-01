@@ -7,30 +7,35 @@ import PanelGroup from "../components/PanelGroup";
 import PanelIndicator from "../components/PanelIndicator";
 
 export default function Home() {
-  const [leds, setLeds] = useState({
-    thing1: false,
-    thing2: true,
-    thing3: false,
-    thing4: false,
-    thing5: true,
-    thing6: false,
-    thing7: true,
-    thing8: false,
-  });
+  const [alarm, setAlarm] = useState(false);
+  const [spOvrld, setSpOverload] = useState(true);
+  const [tcInPos, setTcInPos] = useState(false);
+  const [tcActvty, setTcActvty] = useState(false);
+  const [apcPos, setApcPos] = useState(true);
+  const [m0m1, setM0M1] = useState(false);
+  const [thing7, setThing7] = useState(true);
+  const [thing8, setThing8] = useState(false);
+
+  const fns = [
+    setAlarm,
+    setSpOverload,
+    setTcInPos,
+    setTcActvty,
+    setApcPos,
+    setM0M1,
+    setThing7,
+    setThing8,
+  ];
 
   useEffect(() => {
     setInterval(() => {
-      const n = rand(1, 8);
-      const val = leds[`thing${n}`];
-      console.log(n, val);
-      leds[`thing${n}`] = !val;
-      setLeds(leds);
+      const toggler = fns[rand(0, 7)];
+      toggler((val) => !val);
     }, 1000);
-    console.log("useEffect");
-  }, [""]);
+  }, []);
 
   return (
-    <div className="m-auto container w-full min-h-screen bg-black">
+    <div className="m-auto container min-h-screen bg-black">
       <Head>
         <title>Matsuura Gtech 30i</title>
         <link rel="icon" href="/favicon.ico" />
@@ -39,14 +44,14 @@ export default function Home() {
       <div className="grid grid-rows-2 grid-cols-12">
         <PanelGroup className="col-span-3 h-28">
           <div className="grid grid-flow-row grid-cols-2">
-            <PanelIndicator on={leds.thing1} label="thing1" />
-            <PanelIndicator on={leds.thing2} label="thing2" />
-            <PanelIndicator on={leds.thing3} label="thing3" />
-            <PanelIndicator on={leds.thing4} label="thing4" />
-            <PanelIndicator on={leds.thing5} label="thing5" />
-            <PanelIndicator on={leds.thing6} label="thing6" />
-            <PanelIndicator on={leds.thing7} label="thing7" />
-            <PanelIndicator on={leds.thing8} label="thing8" />
+            <PanelIndicator on={alarm} label="ALARM" />
+            <PanelIndicator on={spOvrld} label="SP OVRLD" />
+            <PanelIndicator on={tcInPos} label="TC IN POS" />
+            <PanelIndicator on={tcActvty} label="TC ACTV" />
+            <PanelIndicator on={apcPos} label="APC POS" />
+            <PanelIndicator on={m0m1} label="M0/M1" />
+            <PanelIndicator on={thing7} label="thing7" />
+            <PanelIndicator on={thing8} label="thing8" />
           </div>
         </PanelGroup>
         <PanelGroup className="h-28 p-1 col-span-3">
@@ -75,19 +80,26 @@ export default function Home() {
         <PanelGroup className="col-span-full">
           <div className="grid grid-flow-col">
             <PanelGroup className="col-span-8">
-              <div>
-                <p className="w-32">Things</p>
+              <div className="flex flex-row justify-evenly gap-1 p-1">
+                <Button text="1" />
+                <Button text="2" />
+                <Button text="3" />
+                <Button text="4" />
+                <Button text="5" />
+                <Button text="6" />
+                <Button text="7" />
+                <Button text="8" />
               </div>
             </PanelGroup>
             <PanelGroup className="col-span-4">
-              <div className="grid grid-flow-row border-collapse">
-                <PanelGroup className="flex flex-row justify-evenly space gap-1 p-1">
-                  <Button text="" />
-                  <Button text="" />
-                  <Button text="" />
-                  <Button text="" />
-                  <Button text="" />
-                  <Button text="" />
+              <div className="grid grid-flow-row">
+                <PanelGroup className="flex flex-row justify-evenly gap-1 p-1">
+                  <Button text="S/BLK" />
+                  <Button text="M01" />
+                  <Button text="BLK/SKP" />
+                  <Button text="DR/RUN" />
+                  <Button text="FN/SEL" />
+                  <Button text="____" />
                 </PanelGroup>
                 <PanelGroup className="">
                   <p>overrides</p>

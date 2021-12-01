@@ -52,7 +52,6 @@
     "react/jsx-props-no-spreading": "off",
 
     // overriding recommended rules
-    "arrow-body-style": "off",
     "no-constant-condition": ["error", { "checkLoops": false }],
     "no-console": ["error", { "allow": ["log", "warn", "error"] }],
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
