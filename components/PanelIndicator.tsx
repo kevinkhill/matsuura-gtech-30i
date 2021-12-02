@@ -1,3 +1,4 @@
+/* eslint-disable  */
 import LED from "./LED";
 
 type PanelIndicatorProps = {

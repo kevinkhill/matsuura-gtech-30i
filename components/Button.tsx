@@ -25,7 +25,7 @@ const Button: React.FC<ButtonProps> = ({ text, red, green }) => {
       className={`h-12 w-12 rounded-md ${bgColor}`}
     >
       <LED classes="-mt-2 m-0.5" on={isActive} />
-      <span className="text-black">{text}</span>
+      <span className="text-xs text-black">{text}</span>
     </button>
   );
 };

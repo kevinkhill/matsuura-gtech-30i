@@ -1,5 +1,5 @@
 {
-  "root":true,
+  "root": true,
   "env": {
     "browser": true,
     "es2021": true,
@@ -9,12 +9,16 @@
     "plugin:react/recommended",
     "airbnb",
     "airbnb-typescript",
+
+    "airbnb/hooks",
+    "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json",
     "ecmaFeatures": {
@@ -23,14 +27,17 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["react", "prettier", "@typescript-eslint"],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "import/no-duplicates": "error",
     "import/no-unresolved": "error",
     "import/named": "error",
     "prettier/prettier": "error",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".tsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".tsx"] }
+    ],
     "react/state-in-constructor": "off",
     "react/prop-types": "off",
     "react/no-access-state-in-setstate": "error",
@@ -52,6 +59,8 @@
     "react/jsx-props-no-spreading": "off",
 
     // overriding recommended rules
+    "react/require-default-props": "off",
+    "arrow-body-style": "off",
     "no-constant-condition": ["error", { "checkLoops": false }],
     "no-console": ["error", { "allow": ["log", "warn", "error"] }],
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],

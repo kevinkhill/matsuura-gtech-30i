@@ -1,39 +1,10 @@
-import { useEffect, useState } from "react";
 import Head from "next/head";
 
-import { rand } from "../core/util";
 import Button from "../components/Button";
 import PanelGroup from "../components/PanelGroup";
-import PanelIndicator from "../components/PanelIndicator";
+import StatusIndicators from "./StatusIndicators";
 
 export default function Home() {
-  const [alarm, setAlarm] = useState(false);
-  const [spOvrld, setSpOverload] = useState(true);
-  const [tcInPos, setTcInPos] = useState(false);
-  const [tcActvty, setTcActvty] = useState(false);
-  const [apcPos, setApcPos] = useState(true);
-  const [m0m1, setM0M1] = useState(false);
-  const [thing7, setThing7] = useState(true);
-  const [thing8, setThing8] = useState(false);
-
-  const fns = [
-    setAlarm,
-    setSpOverload,
-    setTcInPos,
-    setTcActvty,
-    setApcPos,
-    setM0M1,
-    setThing7,
-    setThing8,
-  ];
-
-  useEffect(() => {
-    setInterval(() => {
-      const toggler = fns[rand(0, 7)];
-      toggler((val) => !val);
-    }, 1000);
-  }, []);
-
   return (
     <div className="m-auto container min-h-screen bg-black">
       <Head>
@@ -43,16 +14,7 @@ export default function Home() {
 
       <div className="grid grid-rows-2 grid-cols-12">
         <PanelGroup className="col-span-3 h-28">
-          <div className="grid grid-flow-row grid-cols-2">
-            <PanelIndicator on={alarm} label="ALARM" />
-            <PanelIndicator on={spOvrld} label="SP OVRLD" />
-            <PanelIndicator on={tcInPos} label="TC IN POS" />
-            <PanelIndicator on={tcActvty} label="TC ACTV" />
-            <PanelIndicator on={apcPos} label="APC POS" />
-            <PanelIndicator on={m0m1} label="M0/M1" />
-            <PanelIndicator on={thing7} label="thing7" />
-            <PanelIndicator on={thing8} label="thing8" />
-          </div>
+          <StatusIndicators />
         </PanelGroup>
         <PanelGroup className="h-28 p-1 col-span-3">
           <div className="grid grid-rows-2 grid-cols-3 gap-1">
