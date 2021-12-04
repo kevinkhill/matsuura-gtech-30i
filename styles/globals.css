@@ -1,4 +1,8 @@
 body {
-    background-color: #000;
-    /* background: url("../public/img/hplus300.jpg") */
+  background-color: #000;
+}
+
+.machine-panel {
+  background-image: url("../public/img/hplus300.en.jpg");
+  background-size: 100%;
 }

@@ -34,7 +34,7 @@ export default class StatusIndicators extends Component<Props, State> {
     APC_IN_POSITION: false,
     M0_M1: false,
     thing7: false,
-    thing8: false,
+    thing8: false
   };
 
   state: State = StatusIndicators.defaultProps;
@@ -46,7 +46,7 @@ export default class StatusIndicators extends Component<Props, State> {
 
   toggleLED(indicator: keyof State) {
     this.setState({
-      indicator: !this.getIndicatorState(indicator),
+      indicator: !this.getIndicatorState(indicator)
     });
   }
 
@@ -59,7 +59,7 @@ export default class StatusIndicators extends Component<Props, State> {
       APC_IN_POSITION,
       M0_M1,
       thing7,
-      thing8,
+      thing8
     } = this.state;
 
     return (

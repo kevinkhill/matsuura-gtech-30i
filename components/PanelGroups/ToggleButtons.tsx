@@ -1,15 +1,22 @@
 import Button from "../Button";
-import PanelGroup from "../PanelGroup";
+import GridContainer from "../GridContainer";
 
-export default function ToggleButtons() {
+export default function ToggleButtons({
+  SINGLE_BLOCK = false,
+  M01 = false,
+  BLOCK_SKIP = false,
+  DRY_RUN = false,
+  FN_SELECT = false,
+  __ = false
+}) {
   return (
-    <PanelGroup className="flex flex-row justify-evenly gap-1 p-1">
-      <Button text="S/BLK" />
-      <Button text="M01" />
-      <Button text="BLK/SKP" />
-      <Button text="DR/RUN" />
-      <Button text="FN/SEL" />
-      <Button text="____" />
-    </PanelGroup>
+    <GridContainer rows={1} cols={6}>
+      <Button isActive={SINGLE_BLOCK} text="S/BLK" />
+      <Button isActive={M01} text="M01" />
+      <Button isActive={BLOCK_SKIP} text="BLK/SKP" />
+      <Button isActive={DRY_RUN} text="DR/RUN" />
+      <Button isActive={FN_SELECT} text="FN/SEL" />
+      <Button isActive={__} text="____" />
+    </GridContainer>
   );
 }

@@ -9,7 +9,7 @@ const GridContainer: React.FC<GridContainerProps> = ({
   children,
   rows,
   cols,
-  gap = 1,
+  gap = 1
 }: GridContainerProps) => {
   return (
     <div

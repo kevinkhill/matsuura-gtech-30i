@@ -1,15 +1,17 @@
 type PanelGroupProps = {
   children?: React.ReactNode | React.ReactNode[];
   className?: string;
+  p?: number;
 };
 
 const PanelGroup: React.FC<PanelGroupProps> = ({
   children,
   className,
+  p = 0
 }: PanelGroupProps) => {
   return (
     <div
-      className={`${className} text-white bg-transparent rounded-lg border-white border-2`}
+      className={`${className} p-${p} text-white rounded-lg border-white border-2`}
     >
       {children}
     </div>
