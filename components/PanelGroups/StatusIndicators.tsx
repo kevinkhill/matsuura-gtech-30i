@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import PanelIndicator from "../components/PanelIndicator";
+import PanelIndicator from "../PanelIndicator";
 
 interface State {
   ALARM: boolean;
@@ -64,9 +64,7 @@ export default class StatusIndicators extends Component<Props, State> {
 
     return (
       <div className="grid grid-flow-row grid-cols-2">
-
         <PanelIndicator on={ALARM} label="ALARM" />
-
         <PanelIndicator on={SPINDLE_OVERLOAD} label="SP OVRLD" />
         <PanelIndicator on={TC_IN_POSITION} label="TC IN POS" />
         <PanelIndicator on={TC_IN_MOTION} label="TC ACTV" />

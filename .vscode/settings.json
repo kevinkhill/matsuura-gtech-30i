@@ -4,5 +4,7 @@
     "**/bower_components": true,
     "**/*.code-search": true,
     "**/.next": true
-  }
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
 }

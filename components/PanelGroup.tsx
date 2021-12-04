@@ -9,7 +9,7 @@ const PanelGroup: React.FC<PanelGroupProps> = ({
 }: PanelGroupProps) => {
   return (
     <div
-      className={`${className} text-white border-collapse bg-opacity-0 rounded-md border-white border-2`}
+      className={`${className} text-white bg-transparent rounded-lg border-white border-2`}
     >
       {children}
     </div>
