@@ -16,7 +16,7 @@ export default function ToggleButtons({
       <Button isActive={BLOCK_SKIP} text="BLK/SKP" />
       <Button isActive={DRY_RUN} text="DR/RUN" />
       <Button isActive={FN_SELECT} text="FN/SEL" />
-      <Button isActive={__} text="____" />
+      <Button isActive={__[0]} handler={__[1]} text="____" />
     </GridContainer>
   );
 }

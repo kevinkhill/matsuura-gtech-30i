@@ -10,7 +10,7 @@ import StatusIndicators from "../components/PanelGroups/StatusIndicators";
 import TextInput from "../components/TextInput";
 
 export default function Home() {
-  const showBg = false;
+  const [showBg, setShowBg] = useState(false);
 
   return (
     <div className="m-auto container min-h-screen bg-black">
@@ -50,7 +50,7 @@ export default function Home() {
           <div className="col-span-5 row-span-2">
             <div className="grid grid-flow-row grid-rows-3 -ml-0.5">
               <PanelGroup p={1} className="">
-                <ToggleButtons />
+                <ToggleButtons __={[showBg, setShowBg]} />
               </PanelGroup>
               <PanelGroup className="-mt-0.5">
                 <p>overrides</p>
