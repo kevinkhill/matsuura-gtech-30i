@@ -7,9 +7,9 @@ export default function HandyButtons() {
     <GridContainer rows={2} cols={3}>
       <Button text="handy" />
       <Button text="gun" />
-      <Button red text="stop" />
+      <Button color="red" text="stop" />
       <Button text="WOF" />
-      <Button green text="action" />
+      <Button color="green" text="action" />
       <Button text="TLM" />
     </GridContainer>
   );

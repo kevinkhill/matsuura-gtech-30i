@@ -1,17 +1,16 @@
 // import { useEffect, useState } from "react";
 import clsx from "clsx";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import LED from "./LED";
 
 export type ButtonProps = {
   text: string;
-  isActive: boolean;
-  onClick: () => unknown;
+  onToggle: (label: string, state: boolean) => void;
   color?: "red" | "green";
 };
 
-const Button: React.FC<ButtonProps> = ({ text, isActive, color, onClick }) => {
+const Button: React.FC<ButtonProps> = ({ text, color, onToggle }) => {
   const [ledState, setLedState] = useState(false);
 
   const bgColor = clsx({
@@ -23,10 +22,7 @@ const Button: React.FC<ButtonProps> = ({ text, isActive, color, onClick }) => {
   const handleClick = (event, label: string) => {
     setLedState((prev) => {
       const newState = !prev;
-
-      // console.log(label, newState);
-      onClick({ label, state: newState });
-
+      onToggle(label, newState);
       return newState;
     });
   };
