@@ -4,7 +4,10 @@ import GridContainer from "../GridContainer";
 
 export default function Home() {
   return (
-    <PanelGroup p={1} className="-mt-0.5 bg-gray-500 bg-opacity-100 h-28 w-56">
+    <PanelGroup
+      p={1}
+      className="-mt-0.5 -mr-0.5 bg-gray-500 bg-opacity-100 h-28 w-56"
+    >
       <GridContainer rows={2} cols={4}>
         <Button text="MEM" />
         <Button text="MDI" />

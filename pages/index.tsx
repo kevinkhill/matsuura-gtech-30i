@@ -48,19 +48,19 @@ export default function Home() {
 
           {/* === Right Section === */}
           <div className="col-span-5 row-span-2">
-            <PanelGroup className="grid grid-flow-row grid-rows-3 -ml-0.5">
-              <PanelGroup p={1} className="-mx-0.5">
+            <div className="grid grid-flow-row grid-rows-3 -ml-0.5">
+              <PanelGroup p={1} className="">
                 <ToggleButtons />
               </PanelGroup>
-              <PanelGroup className="-mt-0.5 -mx-0.5">
+              <PanelGroup className="-mt-0.5">
                 <p>overrides</p>
               </PanelGroup>
-              <PanelGroup className="-m-0.5">
+              <PanelGroup className="-mt-0.5">
                 <div className="flex flex-auto">
                   <p>feed hold / cycle start</p>
                 </div>
               </PanelGroup>
-            </PanelGroup>
+            </div>
           </div>
         </div>
       </div>
