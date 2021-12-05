@@ -11,6 +11,21 @@ import TextInput from "../components/TextInput";
 
 export default function Home() {
   const [showBg, setShowBg] = useState(false);
+  // const [toggleBtnStates, setToggleStates] = useState({
+  //   SINGLE_BLOCK: false,
+  //   M01: false,
+  //   BLOCK_SKIP: false,
+  //   DRY_RUN: false,
+  //   FN_SELECT: false,
+  //   __: false
+  // });
+
+  const handleToggleButtons = (_) => {
+    if (false) {
+      setShowBg(true);
+    }
+    console.log(_);
+  };
 
   return (
     <div className="m-auto container min-h-screen bg-black">
@@ -50,7 +65,8 @@ export default function Home() {
           <div className="col-span-5 row-span-2">
             <div className="grid grid-flow-row grid-rows-3 -ml-0.5">
               <PanelGroup p={1} className="">
-                <ToggleButtons __={[showBg, setShowBg]} />
+                {/* <ToggleButtons __={[showBg, setShowBg]} /> */}
+                <ToggleButtons onToggle={handleToggleButtons} />
               </PanelGroup>
               <PanelGroup className="-mt-0.5">
                 <p>overrides</p>

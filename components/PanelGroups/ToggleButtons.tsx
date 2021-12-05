@@ -1,22 +1,41 @@
 import Button from "../Button";
+import ButtonGroup from "../ButtonGroup";
 import GridContainer from "../GridContainer";
 
+type ButtonHandler = () => void;
+
+type ButtonStates = {
+  SINGLE_BLOCK: boolean;
+  M01: boolean;
+  BLOCK_SKIP: boolean;
+  DRY_RUN: boolean;
+  FN_SELECT: boolean;
+  __: boolean;
+};
+
 export default function ToggleButtons({
-  SINGLE_BLOCK = false,
-  M01 = false,
-  BLOCK_SKIP = false,
-  DRY_RUN = false,
-  FN_SELECT = false,
-  __ = false
+  SINGLE_BLOCK,
+  M01,
+  BLOCK_SKIP,
+  DRY_RUN,
+  FN_SELECT,
+  __,
+}: {
+  state: ButtonStates;
+  onToggle: any;
 }) {
+  const buttons = [
+    { text: "S/BLK" },
+    { text: "M01" },
+    { text: "BLK/SKP" },
+    { text: "DR/RUN" },
+    { text: "FN/SEL" },
+    { text: "__" },
+  ];
+
   return (
     <GridContainer rows={1} cols={6}>
-      <Button isActive={SINGLE_BLOCK} text="S/BLK" />
-      <Button isActive={M01} text="M01" />
-      <Button isActive={BLOCK_SKIP} text="BLK/SKP" />
-      <Button isActive={DRY_RUN} text="DR/RUN" />
-      <Button isActive={FN_SELECT} text="FN/SEL" />
-      <Button isActive={__[0]} handler={__[1]} text="____" />
+      <ButtonGroup groupLabel="ToggleButtons" buttons={buttons} />
     </GridContainer>
   );
 }
