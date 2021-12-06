@@ -1,7 +1,6 @@
-import Button from "../Button";
 import PanelGroup from "../PanelGroup";
-import GridContainer from "../GridContainer";
 import ButtonGroup from "../ButtonGroup";
+import GridContainer from "../GridContainer";
 
 export default function Home() {
   const buttons = [
