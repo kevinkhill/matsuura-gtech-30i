@@ -6,8 +6,8 @@ import LED from "./LED";
 
 export type ButtonProps = {
   text: string;
-  onToggle: (label: string, state: boolean) => void;
   color?: "red" | "green";
+  onToggle?: (label: string, state: boolean) => void;
 };
 
 const Button: React.FC<ButtonProps> = ({ text, color, onToggle }) => {

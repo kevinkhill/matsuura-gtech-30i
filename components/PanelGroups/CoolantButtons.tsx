@@ -1,15 +1,19 @@
-import Button from "../Button";
+import ButtonGroup from "../ButtonGroup";
 import GridContainer from "../GridContainer";
 
 export default function CoolantButtons() {
+  const buttons = [
+    { color: "red", text: "c/ng" },
+    { text: "oilshower" },
+    { text: "c/tgl" },
+    { text: "conveyor" },
+    { text: "tsc" },
+    { text: "chipwash" },
+  ];
+
   return (
     <GridContainer rows={2} cols={3}>
-      <Button color="red" text="c/ng" />
-      <Button text="oilshower" />
-      <Button text="c/tgl" />
-      <Button text="conveyor" />
-      <Button text="tsc" />
-      <Button text="chipwash" />
+      <ButtonGroup buttons={buttons} groupLabel="Coolant Group" />
     </GridContainer>
   );
 }

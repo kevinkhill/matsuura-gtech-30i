@@ -1,16 +1,18 @@
-import Button from "../Button";
-import PanelGroup from "../PanelGroup";
 import GridContainer from "../GridContainer";
+import ButtonGroup from "../ButtonGroup";
 
 export default function HandyButtons() {
+  const buttons = [
+    { text: "handy" },
+    { text: "gun" },
+    { text: "stop", color: "red" },
+    { text: "WOF" },
+    { text: "action", color: "green" },
+    { text: "TLM" },
+  ];
   return (
     <GridContainer rows={2} cols={3}>
-      <Button text="handy" />
-      <Button text="gun" />
-      <Button color="red" text="stop" />
-      <Button text="WOF" />
-      <Button color="green" text="action" />
-      <Button text="TLM" />
+      <ButtonGroup buttons={buttons} groupLabel="Handy Group" />
     </GridContainer>
   );
 }

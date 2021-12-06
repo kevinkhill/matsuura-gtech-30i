@@ -1,22 +1,27 @@
 import Button from "../Button";
 import PanelGroup from "../PanelGroup";
 import GridContainer from "../GridContainer";
+import ButtonGroup from "../ButtonGroup";
 
 export default function Home() {
+  const buttons = [
+    { text: "MEM" },
+    { text: "MDI" },
+    { text: "REMOTE" },
+    { text: "EDIT" },
+    { text: "H" },
+    { text: "6" },
+    { text: "7" },
+    { text: "[  ]" },
+  ];
+
   return (
     <PanelGroup
       p={1}
       className="-mt-0.5 -mr-0.5 bg-gray-500 bg-opacity-100 h-28 w-56"
     >
       <GridContainer rows={2} cols={4}>
-        <Button text="MEM" />
-        <Button text="MDI" />
-        <Button text="REMOTE" />
-        <Button text="EDIT" />
-        <Button text="H" />
-        <Button text="6" />
-        <Button text="7" />
-        <Button text="[  ]" />
+        <ButtonGroup buttons={buttons} groupLabel="Mode Group" />
       </GridContainer>
     </PanelGroup>
   );
