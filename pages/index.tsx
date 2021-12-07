@@ -14,8 +14,8 @@ export default function Home() {
   const [showBg, setShowBg] = useState(false);
 
   const handleButton: ButtonGroupProps["onToggle"] = (group, button, state) => {
-    if (false) {
-      setShowBg(true);
+    if (button === "__") {
+      setShowBg(state);
     }
     console.log(group, button, state);
   };
