@@ -7,14 +7,12 @@ type GridContainerProps = {
 
 const GridContainer: React.FC<GridContainerProps> = ({
   children,
-  rows,
-  cols,
-  gap = 1
+  gap = 1,
+  rows = 2,
+  cols = 3,
 }: GridContainerProps) => {
   return (
-    <div
-      className={`grid grid-flow-col grid-rows-${rows} grid-cols-${cols} place-items-center gap-${gap} bg-transparent`}
-    >
+    <div className={`grid grid-cols-${cols} place-items-center gap-${gap}`}>
       {children}
     </div>
   );

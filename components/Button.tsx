@@ -1,14 +1,13 @@
-// import { useEffect, useState } from "react";
-import clsx from "clsx";
 import { useState } from "react";
+import clsx from "clsx";
 
 import LED from "./LED";
 
-export type ButtonProps = {
+export interface ButtonProps {
   text: string;
   color?: "red" | "green";
   onToggle?: (label: string, state: boolean) => void;
-};
+}
 
 const Button: React.FC<ButtonProps> = ({ text, color, onToggle }) => {
   const [ledState, setLedState] = useState(false);

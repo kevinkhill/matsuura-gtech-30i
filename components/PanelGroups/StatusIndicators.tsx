@@ -44,12 +44,6 @@ export default class StatusIndicators extends Component<Props, State> {
     return this.state[indicator];
   }
 
-  toggleLED(indicator: keyof State) {
-    this.setState({
-      indicator: !this.getIndicatorState(indicator)
-    });
-  }
-
   render() {
     const {
       ALARM,

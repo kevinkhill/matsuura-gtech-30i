@@ -1,19 +1,25 @@
 import ButtonGroup from "../ButtonGroup";
-import GridContainer from "../GridContainer";
+import { ButtonProps } from "../Button";
 
-export default function ToggleButtons() {
-  const buttons = [
-    { text: "S/BLK" },
-    { text: "M01" },
-    { text: "BLK/SKP" },
-    { text: "DR/RUN" },
-    { text: "FN/SEL" },
-    { text: "__" },
-  ];
+const buttons: ButtonProps[] = [
+  { text: "S/BLK" },
+  { text: "M01" },
+  { text: "BLK/SKP" },
+  { text: "DR/RUN" },
+  { text: "FN/SEL" },
+  { text: "__" },
+];
 
+const ToggleButtons = ({ onToggle }) => {
   return (
-    <GridContainer rows={1} cols={6}>
-      <ButtonGroup buttons={buttons} groupLabel="Toggle Group" />
-    </GridContainer>
+    <div className="grid grid-cols-6 gap-1 place-items-center">
+      <ButtonGroup
+        buttons={buttons}
+        onToggle={onToggle}
+        groupLabel="Toggle Group"
+      />
+    </div>
   );
-}
+};
+
+export default ToggleButtons;

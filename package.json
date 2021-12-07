@@ -5,7 +5,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx . --report-unused-disable-directives",
-    "lint-fix": "lint -- --fix ",
+    "lint-fix": "yarn run lint -- --fix ",
     "format": "prettier --ignore-path .prettierignore --write .",
     "prepare": "husky install"
   },

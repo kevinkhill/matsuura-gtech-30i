@@ -3,7 +3,7 @@
 type LedProps = {
   on: boolean;
   classes?: string;
-  // eslint-disable-next-line react/require-default-props
+
   size?: number;
 };
 

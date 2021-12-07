@@ -1,18 +1,25 @@
-import GridContainer from "../GridContainer";
 import ButtonGroup from "../ButtonGroup";
+import { ButtonProps } from "../Button";
 
-export default function HandyButtons() {
-  const buttons = [
-    { text: "handy" },
-    { text: "gun" },
-    { text: "stop", color: "red" },
-    { text: "WOF" },
-    { text: "action", color: "green" },
-    { text: "TLM" },
-  ];
+const buttons: ButtonProps[] = [
+  { text: "handy" },
+  { text: "gun" },
+  { text: "stop", color: "red" },
+  { text: "WOF" },
+  { text: "action", color: "green" },
+  { text: "TLM" },
+];
+
+const HandyButtons = ({ onToggle }) => {
   return (
-    <GridContainer rows={2} cols={3}>
-      <ButtonGroup buttons={buttons} groupLabel="Handy Group" />
-    </GridContainer>
+    <div className="grid grid-cols-3 gap-1 place-items-center">
+      <ButtonGroup
+        buttons={buttons}
+        onToggle={onToggle}
+        groupLabel="Handy Group"
+      />
+    </div>
   );
-}
+};
+
+export default HandyButtons;

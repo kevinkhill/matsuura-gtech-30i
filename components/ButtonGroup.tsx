@@ -1,22 +1,30 @@
 import Button, { ButtonProps } from "./Button";
 
-type ButtonGroupProps = {
-  buttons: ButtonProps[];
+export interface ButtonGroupProps {
   groupLabel?: string;
-};
+  buttons: ButtonProps[];
+  onToggle: (groupLabel: string, label: string, state: boolean) => unknown;
+}
 
-export default function ButtonGroup({ buttons, groupLabel }: ButtonGroupProps) {
+const ButtonGroup = ({ buttons, onToggle, groupLabel }: ButtonGroupProps) => {
   const handleClick = (label: string, state: boolean) => {
-    console.log(groupLabel, label, state);
+    onToggle(groupLabel, label, state);
   };
 
   return (
     <>
       {buttons.map((btn: ButtonProps) => {
         return (
-          <Button text={btn.text} color={btn.color} onToggle={handleClick} />
+          <Button
+            key={btn.text}
+            text={btn.text}
+            color={btn.color}
+            onToggle={handleClick}
+          />
         );
       })}
     </>
   );
-}
+};
+
+export default ButtonGroup;
