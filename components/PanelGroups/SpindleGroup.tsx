@@ -4,9 +4,20 @@ import Button from "../Button";
 
 const SpindleGroup = ({ onToggle }) => {
   const [rpms, setRpms] = useState(100);
+
   const reset = () => setRpms(100);
-  const increase = () => setRpms(rpms + 10);
-  const decrease = () => setRpms(rpms - 10);
+
+  const increase = () =>
+    setRpms(() => {
+      const newSpeed = rpms + 10;
+      return newSpeed >= 120 ? 120 : newSpeed;
+    });
+
+  const decrease = () =>
+    setRpms(() => {
+      const newSpeed = rpms - 10;
+      return newSpeed <= 0 ? 0 : newSpeed;
+    });
 
   return (
     <div className="grid grid-cols-4 gap-1 p-1 place-items-center">
