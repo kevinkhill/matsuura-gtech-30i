@@ -38,13 +38,13 @@ export default function Home() {
           <PanelGroup className="col-span-4">
             <StatusIndicators
               ALARM={false}
-              SPINDLE_OVERLOAD={false}
-              TC_IN_POSITION={false}
-              TC_IN_MOTION={false}
-              APC_IN_POSITION={false}
               M0_M1={false}
-              SENSOR_TOUCH={false}
               thing8={false}
+              SENSOR_TOUCH={false}
+              TC_IN_MOTION={false}
+              TC_IN_POSITION={false}
+              APC_IN_POSITION={false}
+              SPINDLE_OVERLOAD={false}
             />
           </PanelGroup>
           <PanelGroup p={1} className="col-span-3 -ml-0.5">

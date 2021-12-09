@@ -7,7 +7,7 @@ export interface ButtonProps {
   text: string;
   plain?: boolean;
   color?: "red" | "green";
-  onToggle?: (label: string, state: boolean) => void;
+  onToggle?: (label?: string, state?: boolean) => void;
 }
 
 const Button: React.FC<ButtonProps> = ({ plain, text, color, onToggle }) => {

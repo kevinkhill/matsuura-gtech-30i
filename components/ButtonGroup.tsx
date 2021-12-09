@@ -8,6 +8,7 @@ export interface ButtonGroupProps {
 
 const ButtonGroup = ({ buttons, onToggle, groupLabel }: ButtonGroupProps) => {
   const handleClick = (label: string, state: boolean) => {
+    // console.log(groupLabel, label, state);
     onToggle(groupLabel, label, state);
   };
 
