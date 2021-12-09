@@ -12,7 +12,7 @@ const SpindleGroup = ({ onToggle }) => {
     <div className="grid grid-cols-4 gap-1 p-1 place-items-center">
       <Button plain text="100%" onToggle={reset} />
       <div className="col-span-3">
-        <div className="text-4xl text-red-600 font-mono-dro">{rpms}%</div>
+        <div className="text-4xl text-red-glow font-mono-dro">{rpms}%</div>
       </div>
       <Button plain text="-" onToggle={decrease} />
       <Button plain text="+" onToggle={increase} />
