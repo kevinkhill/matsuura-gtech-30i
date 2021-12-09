@@ -3,12 +3,13 @@ import Head from "next/head";
 
 import TextInput from "../components/TextInput";
 import PanelGroup from "../components/PanelGroup";
+import { ButtonGroupProps } from "../components/ButtonGroup";
 import ModeButtons from "../components/PanelGroups/ModeButtons";
 import HandyButtons from "../components/PanelGroups/HandyButtons";
+import SpindleGroup from "../components/PanelGroups/SpindleGroup";
 import ToggleButtons from "../components/PanelGroups/ToggleButtons";
 import CoolantButtons from "../components/PanelGroups/CoolantButtons";
 import StatusIndicators from "../components/PanelGroups/StatusIndicators";
-import { ButtonGroupProps } from "../components/ButtonGroup";
 
 export default function Home() {
   const [showBg, setShowBg] = useState(false);
@@ -33,18 +34,27 @@ export default function Home() {
       {/* === Container === */}
       <div className={`min-h-screen ${showBg ? "machine-panel" : ""}`}>
         {/* === Top Group === */}
-        <div className="grid grid-cols-4 h-28">
-          <PanelGroup className="">
-            <StatusIndicators />
+        <div className="grid grid-flow-col h-28">
+          <PanelGroup className="col-span-4">
+            <StatusIndicators
+              ALARM={false}
+              SPINDLE_OVERLOAD={false}
+              TC_IN_POSITION={false}
+              TC_IN_MOTION={false}
+              APC_IN_POSITION={false}
+              M0_M1={false}
+              SENSOR_TOUCH={false}
+              thing8={false}
+            />
           </PanelGroup>
-          <PanelGroup p={1} className="-ml-0.5">
+          <PanelGroup p={1} className="col-span-3 -ml-0.5">
             <HandyButtons onToggle={handleButton} />
           </PanelGroup>
-          <PanelGroup p={1} className="-ml-0.5">
+          <PanelGroup p={1} className="col-span-3 -ml-0.5">
             <CoolantButtons onToggle={handleButton} />
           </PanelGroup>
-          <PanelGroup className="-ml-0.5">
-            <p>spindle</p>
+          <PanelGroup className="col-span-4 -ml-0.5">
+            <SpindleGroup onToggle={handleButton} />
           </PanelGroup>
         </div>
         {/* === Bottom Group === */}

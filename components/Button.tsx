@@ -5,11 +5,12 @@ import LED from "./LED";
 
 export interface ButtonProps {
   text: string;
+  plain?: boolean;
   color?: "red" | "green";
   onToggle?: (label: string, state: boolean) => void;
 }
 
-const Button: React.FC<ButtonProps> = ({ text, color, onToggle }) => {
+const Button: React.FC<ButtonProps> = ({ plain, text, color, onToggle }) => {
   const [ledState, setLedState] = useState(false);
 
   const bgColor = clsx({
@@ -34,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({ text, color, onToggle }) => {
         onClick={(event) => handleClick(event, text)}
         className={`h-12 w-12 rounded-md ${bgColor}`}
       >
-        <LED classes="-mt-2 m-0.5" on={ledState} />
+        {!plain ? <LED classes="-mt-2 m-0.5" on={ledState} /> : <></>}
         <span className="text-xs text-black">{text}</span>
       </button>
     </div>

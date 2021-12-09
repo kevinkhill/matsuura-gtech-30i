@@ -1,72 +1,42 @@
-import React, { Component } from "react";
+import React from "react";
 
 import PanelIndicator from "../PanelIndicator";
 
-interface State {
-  ALARM: boolean;
-  SPINDLE_OVERLOAD: boolean;
-  TC_IN_POSITION: boolean;
-  TC_IN_MOTION: boolean;
-  APC_IN_POSITION: boolean;
+interface StatusIndicatorProps {
   M0_M1: boolean;
-  thing7: boolean;
-  thing8: boolean;
-}
-
-interface Props {
   ALARM: boolean;
-  SPINDLE_OVERLOAD: boolean;
-  TC_IN_POSITION: boolean;
-  TC_IN_MOTION: boolean;
-  APC_IN_POSITION: boolean;
-  M0_M1: boolean;
-  thing7: boolean;
   thing8: boolean;
+  SENSOR_TOUCH: boolean;
+  TC_IN_MOTION: boolean;
+  TC_IN_POSITION: boolean;
+  APC_IN_POSITION: boolean;
+  SPINDLE_OVERLOAD: boolean;
 }
 
-export default class StatusIndicators extends Component<Props, State> {
-  // eslint-disable-next-line react/static-property-placement
-  static defaultProps = {
-    ALARM: false,
-    SPINDLE_OVERLOAD: false,
-    TC_IN_POSITION: false,
-    TC_IN_MOTION: false,
-    APC_IN_POSITION: false,
-    M0_M1: false,
-    thing7: false,
-    thing8: false
-  };
+const StatusIndicators = (props: StatusIndicatorProps) => {
+  const {
+    M0_M1 = false,
+    ALARM = false,
+    thing8 = false,
+    SENSOR_TOUCH = false,
+    TC_IN_MOTION = false,
+    TC_IN_POSITION = false,
+    SPINDLE_OVERLOAD = false,
+    APC_IN_POSITION = false,
+  } = props;
 
-  state: State = StatusIndicators.defaultProps;
+  return (
+    <div className="grid grid-flow-row grid-cols-2">
+      <PanelIndicator on={ALARM} label="ALARM" />
+      <PanelIndicator on={SPINDLE_OVERLOAD} label="SP OVRLD" />
+      <PanelIndicator on={TC_IN_POSITION} label="TC IN POS" />
+      <PanelIndicator on={TC_IN_MOTION} label="TC ACTV" />
+      <PanelIndicator on={APC_IN_POSITION} label="APC POS" />
+      <PanelIndicator on={M0_M1} label="M0/M1" />
+      <PanelIndicator on={SENSOR_TOUCH} label="thing7" />
+      <PanelIndicator on={thing8} label="thing8" />
+    </div>
+  );
+};
 
-  getIndicatorState(indicator: keyof State): boolean {
-    // eslint-disable-next-line react/destructuring-assignment
-    return this.state[indicator];
-  }
-
-  render() {
-    const {
-      ALARM,
-      SPINDLE_OVERLOAD,
-      TC_IN_POSITION,
-      TC_IN_MOTION,
-      APC_IN_POSITION,
-      M0_M1,
-      thing7,
-      thing8
-    } = this.state;
-
-    return (
-      <div className="grid grid-flow-row grid-cols-2">
-        <PanelIndicator on={ALARM} label="ALARM" />
-        <PanelIndicator on={SPINDLE_OVERLOAD} label="SP OVRLD" />
-        <PanelIndicator on={TC_IN_POSITION} label="TC IN POS" />
-        <PanelIndicator on={TC_IN_MOTION} label="TC ACTV" />
-        <PanelIndicator on={APC_IN_POSITION} label="APC POS" />
-        <PanelIndicator on={M0_M1} label="M0/M1" />
-        <PanelIndicator on={thing7} label="thing7" />
-        <PanelIndicator on={thing8} label="thing8" />
-      </div>
-    );
-  }
-}
+export default StatusIndicators;
