@@ -17,6 +17,7 @@ const ButtonGroup = ({ buttons, onToggle, groupLabel }: ButtonGroupProps) => {
       {buttons.map((btn: ButtonProps) => {
         return (
           <Button
+            plain={btn.plain}
             key={btn.text}
             text={btn.text}
             color={btn.color}
