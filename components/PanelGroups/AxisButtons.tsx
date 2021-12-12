@@ -1,5 +1,5 @@
 import { ButtonProps } from "../Button";
-import ButtonGroup from "../ButtonGroup";
+import RadioButtonGroup from "../RadioButtonGroup";
 
 const buttons: ButtonProps[] = [
   { text: "X" },
@@ -10,13 +10,14 @@ const buttons: ButtonProps[] = [
   { text: "." }
 ];
 
-const AxisButtons = ({ onToggle }) => {
+const AxisButtons = ({ handler }) => {
   return (
     <div className="grid grid-cols-3 gap-1 p-5 place-items-center">
-      <ButtonGroup
+      <RadioButtonGroup
+        initial="X"
+        label="Axis Group"
         buttons={buttons}
-        onToggle={onToggle}
-        groupLabel="Axis Group"
+        handler={handler}
       />
     </div>
   );
