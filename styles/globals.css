@@ -4,8 +4,20 @@ body {
   background-color: #000;
 }
 
+.bg-panel-gray {
+  background-color: #555;
+}
+
 .font-mono-dro {
   font-family: "Syne Mono", monospace;
+}
+
+.top-left-highlight {
+  @apply border-t border-t-slate-400 border-l border-l-slate-400;
+}
+
+.bottom-right-shadow {
+  @apply border-b border-b-slate-800 border-r border-r-slate-800;
 }
 
 .text-red-glow {
