@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 
 import TitleBar from "../components/Monitor/TitleBar";
