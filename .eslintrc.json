@@ -21,10 +21,11 @@
   "plugins": ["react", "prettier", "@typescript-eslint"],
   "extends": [
     "eslint:recommended",
-    "plugin:react/recommended",
     "airbnb",
     "airbnb-typescript",
     "airbnb/hooks",
+    "plugin:react/recommended",
+    "plugin:@next/next/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier"

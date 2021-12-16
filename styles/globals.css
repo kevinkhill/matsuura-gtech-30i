@@ -12,6 +12,14 @@ body {
   font-family: "Syne Mono", monospace;
 }
 
+.well-border {
+  @apply rounded
+    border-l border-l-slate-800
+    border-t border-t-slate-800
+    border-r border-r-slate-400
+    border-b border-b-slate-400;
+}
+
 .top-left-highlight {
   @apply border-t border-t-slate-400 border-l border-l-slate-400;
 }

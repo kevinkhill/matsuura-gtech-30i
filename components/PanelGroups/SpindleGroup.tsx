@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import Button from "../Button";
 
-const SpindleGroup = ({ onToggle }) => {
+const SpindleGroup = ({ handler }) => {
   const [rpms, setRpms] = useState(100);
 
   const reset = () => setRpms(100);
@@ -21,14 +21,14 @@ const SpindleGroup = ({ onToggle }) => {
 
   return (
     <div className="grid grid-cols-4 gap-1 p-1 place-items-center">
-      <Button plain text="100%" onToggle={reset} />
+      <Button plain text="100%" onClick={reset} />
       <div className="col-span-3">
         <div className="text-4xl text-red-glow font-mono-dro">{rpms}%</div>
       </div>
-      <Button plain text="-" onToggle={decrease} />
-      <Button plain text="+" onToggle={increase} />
-      <Button plain text="O" color="red" onToggle={onToggle} />
-      <Button text="|" onToggle={onToggle} />
+      <Button plain text="-" onClick={decrease} />
+      <Button plain text="+" onClick={increase} />
+      <Button plain text="O" color="red" onClick={() => handler("O")} />
+      <Button text="|" onClick={() => handler("|")} />
     </div>
   );
 };

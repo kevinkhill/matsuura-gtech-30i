@@ -30,9 +30,9 @@ const HandleIncrementButtons = ({
 
   return (
     <div className="grid grid-cols-3 gap-1 p-1">
-      <Button ledOn={ledStates.X1} text="X1" onToggle={handleButton} />
-      <Button ledOn={ledStates.X10} text="X10" onToggle={handleButton} />
-      <Button ledOn={ledStates.X100} text="X100" onToggle={handleButton} />
+      <Button ledOn={ledStates.X1} text="X1" onClick={handleButton} />
+      <Button ledOn={ledStates.X10} text="X10" onClick={handleButton} />
+      <Button ledOn={ledStates.X100} text="X100" onClick={handleButton} />
     </div>
   );
 };

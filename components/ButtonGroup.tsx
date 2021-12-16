@@ -3,13 +3,12 @@ import Button, { ButtonProps } from "./Button";
 export interface ButtonGroupProps {
   groupLabel?: string;
   buttons: ButtonProps[];
-  onToggle: (groupLabel: string, label: string, state: boolean) => unknown;
+  onToggle: (groupLabel: string, label: string) => unknown;
 }
 
 const ButtonGroup = ({ buttons, onToggle, groupLabel }: ButtonGroupProps) => {
-  const handleClick = (label: string, state: boolean) => {
-    // console.log(groupLabel, label, state);
-    onToggle(groupLabel, label, state);
+  const handleClick = (label: string) => {
+    onToggle(groupLabel, label);
   };
 
   return (
@@ -17,11 +16,12 @@ const ButtonGroup = ({ buttons, onToggle, groupLabel }: ButtonGroupProps) => {
       {buttons.map((btn: ButtonProps) => {
         return (
           <Button
-            plain={btn.plain}
             key={btn.text}
             text={btn.text}
             color={btn.color}
-            onToggle={handleClick}
+            ledOn={btn.ledOn}
+            plain={btn.plain}
+            onClick={handleClick}
           />
         );
       })}

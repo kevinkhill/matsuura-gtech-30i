@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { OnClickEvent } from "../types";
 
 import LED from "./LED";
 
@@ -24,8 +23,8 @@ const Button: React.FC<ButtonProps> = ({
     "bg-white": color !== "green" && color !== "red"
   });
 
-  const handleClick = (label: string, event: OnClickEvent) => {
-    if (onClick) onClick(label, event);
+  const handleClick = (label: string) => {
+    if (onClick) onClick(label);
   };
 
   return (
@@ -33,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({
       <button
         key={text}
         type="button"
-        onClick={e => handleClick(text, e)}
+        onClick={() => handleClick(text)}
         className={`h-12 w-12 rounded-md ${bgColor}`}
       >
         {!plain ? <LED classes="-mt-2 m-0.5" on={ledOn} /> : <></>}
