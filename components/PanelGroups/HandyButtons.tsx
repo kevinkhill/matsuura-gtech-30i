@@ -7,7 +7,7 @@ const buttons: ButtonProps[] = [
   { text: "stop", color: "red" },
   { text: "WOF" },
   { text: "action", color: "green" },
-  { text: "TLM" },
+  { text: "TLM" }
 ];
 
 const HandyButtons = ({ onToggle }) => {

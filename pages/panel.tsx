@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 import Head from "next/head";
 
 import { toggle } from "../core/util";
 import Button from "../components/Button";
 import PanelGroup from "../components/PanelGroup";
-import { ButtonGroupProps } from "../components/ButtonGroup";
 
 import AxisButtons from "../components/PanelGroups/AxisButtons";
 import ModeButtons from "../components/PanelGroups/ModeButtons";

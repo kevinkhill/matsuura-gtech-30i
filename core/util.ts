@@ -19,7 +19,6 @@ export function activateKey(
   const keys = Object.keys(obj);
 
   keys.forEach(key => {
-    // eslint-disable-next-line no-param-reassign
     newMap[key] = key === keyToActivate;
   });
 

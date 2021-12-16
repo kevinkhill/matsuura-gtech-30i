@@ -7,7 +7,7 @@ const buttons: ButtonProps[] = [
   { text: "c/tgl" },
   { text: "conveyor" },
   { text: "tsc" },
-  { text: "chipwash" },
+  { text: "chipwash" }
 ];
 
 const CoolantButtons = ({ onToggle }) => {

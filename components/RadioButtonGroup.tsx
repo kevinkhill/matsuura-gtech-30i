@@ -13,7 +13,6 @@ export interface RadioButtonGroupProps {
 }
 
 const RadioButtonGroup = ({
-  label = "",
   initial,
   buttons,
   handler
@@ -40,7 +39,7 @@ const RadioButtonGroup = ({
             text={btn.text}
             color={btn.color}
             plain={btn.plain}
-            onClick={handleButton}
+            onClick={() => handleButton(btn.text)}
             ledOn={ledStates[btn.text]}
           />
         );

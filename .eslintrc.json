@@ -18,7 +18,12 @@
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
-  "plugins": ["react", "prettier", "@typescript-eslint"],
+  "plugins": [
+    "react",
+    "prettier",
+    "@typescript-eslint",
+    "@next/eslint-plugin-next"
+  ],
   "extends": [
     "eslint:recommended",
     "airbnb",
@@ -65,7 +70,7 @@
     "arrow-parens": "off",
     "no-constant-condition": ["error", { "checkLoops": false }],
     "no-console": ["error", { "allow": ["log", "warn", "error"] }],
-    "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    // "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
     "prettier/prettier": "error",
     "no-underscore-dangle": ["error"]
   },
