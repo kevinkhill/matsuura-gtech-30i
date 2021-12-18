@@ -1,3 +1,5 @@
+import React from "react";
+
 type PanelGroupProps = {
   children?: React.ReactNode | React.ReactNode[];
   className?: string;

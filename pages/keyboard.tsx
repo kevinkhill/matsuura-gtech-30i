@@ -1,12 +1,22 @@
 import React from "react";
 import Head from "next/head";
-import Key from "../components/Keyboard/Key";
 
-function handleKey(keycode: string) {
-  console.log("keyboard:", keycode);
-}
+import KeyboardKey from "../components/Keyboard/KeyboardKey";
+import KeyMap, { KeyValues, kv } from "../components/Keyboard/KeyMap";
 
-export default function Keyboard() {
+export default function Keyboard({ onKeypress }) {
+  const handler = (key: KeyValues) => {
+    onKeypress(key);
+  };
+
+  const PlainKey = ({ value }) => (
+    <KeyboardKey onClick={handler} value={value} />
+  );
+
+  const WhiteKey = ({ value }) => (
+    <KeyboardKey white onClick={handler} value={value} />
+  );
+
   return (
     <div className="container m-auto bg-black">
       <Head>
@@ -18,176 +28,100 @@ export default function Keyboard() {
         <div className="flex flex-row justify-around flex-1">
           <div className="flex flex-col gap-2">
             <div className="">
-              <Key white onClick={handleKey} value="RESET" />
+              <WhiteKey value={kv("RESET")} />
             </div>
             <div className="py-4">
-              <Key onClick={handleKey} value="HELP" />
+              <PlainKey value={kv("HELP")} />
             </div>
             <div className="">
-              <Key onClick={handleKey} value="ABC/abc" />
+              <PlainKey value={kv("ABC/abc")} />
             </div>
             <div className="">
-              <Key onClick={handleKey} value="SHIFT" />
+              <PlainKey value={kv("SHIFT")} />
             </div>
           </div>
           <div className="grid grid-cols-4 gap-1">
-            <div>
-              <Key white onClick={handleKey} value="O" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="N" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="G" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="P" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="X" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="Y" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="Z" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="Q" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="I" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="J" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="K" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="R" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="M" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="S" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="T" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="L" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="F" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="D" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="H" />
-            </div>
-            <div>
-              <Key white onClick={handleKey} value="B" />
-            </div>
+            <WhiteKey value={KeyMap.O} />
+            <WhiteKey value={KeyMap.N} />
+            <WhiteKey value={KeyMap.G} />
+            <WhiteKey value={KeyMap.P} />
+            <WhiteKey value={KeyMap.X} />
+            <WhiteKey value={KeyMap.Y} />
+            <WhiteKey value={KeyMap.Z} />
+            <WhiteKey value={KeyMap.Q} />
+            <WhiteKey value={KeyMap.I} />
+            <WhiteKey value={KeyMap.J} />
+            <WhiteKey value={KeyMap.K} />
+            <WhiteKey value={KeyMap.R} />
+            <WhiteKey value={KeyMap.M} />
+            <WhiteKey value={KeyMap.S} />
+            <WhiteKey value={KeyMap.T} />
+            <WhiteKey value={KeyMap.L} />
+            <WhiteKey value={KeyMap.F} />
+            <WhiteKey value={KeyMap.D} />
+            <WhiteKey value={KeyMap.H} />
+            <WhiteKey value={KeyMap.B} />
           </div>
           <div className="className">
             <div className="grid grid-cols-3 gap-1">
-              <div>
-                <Key white onClick={handleKey} value="7" />
-              </div>
-              <div>
-                <Key white onClick={handleKey} value="8" />
-              </div>
-              <div>
-                <Key white onClick={handleKey} value="9" />
-              </div>
-              <div>
-                <Key white onClick={handleKey} value="4" />
-              </div>
-              <div>
-                <Key white onClick={handleKey} value="5" />
-              </div>
-              <div>
-                <Key white onClick={handleKey} value="6" />
-              </div>
-              <div>
-                <Key white onClick={handleKey} value="1" />
-              </div>
-              <div>
-                <Key white onClick={handleKey} value="2" />
-              </div>
-              <div>
-                <Key white onClick={handleKey} value="3" />
-              </div>
-              <div>
-                <Key white onClick={handleKey} value="-" />
-              </div>
-              <div>
-                <Key white onClick={handleKey} value="0" />
-              </div>
-              <div>
-                <Key white onClick={handleKey} value="." />
-              </div>
-              <div>
-                <Key white onClick={handleKey} value="/" />
-              </div>
-              <div>
-                <Key white onClick={handleKey} value="EOB" />
-              </div>
-              <div>
-                <Key onClick={handleKey} value="//CAN" />
-              </div>
+              <WhiteKey value={kv("7")} />
+              <WhiteKey value={kv("8")} />
+              <WhiteKey value={kv("9")} />
+              <WhiteKey value={kv("4")} />
+              <WhiteKey value={kv("5")} />
+              <WhiteKey value={kv("6")} />
+              <WhiteKey value={kv("1")} />
+              <WhiteKey value={kv("2")} />
+              <WhiteKey value={kv("3")} />
+              <WhiteKey value={kv("-")} />
+              <WhiteKey value={kv("0")} />
+              <WhiteKey value={kv(".")} />
+              <WhiteKey value={kv("/")} />
+              <WhiteKey value={kv("EOB")} />
+              <PlainKey value={kv("//CAN")} />
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <div>
-              <Key onClick={handleKey} value="ALTER" />
-            </div>
-            <div>
-              <Key onClick={handleKey} value="INSERT" />
-            </div>
-            <div>
-              <Key onClick={handleKey} value="DELETE" />
-            </div>
+            <PlainKey value={KeyMap.ALTER} />
+            <PlainKey value={KeyMap.INSERT} />
+            <PlainKey value={KeyMap.DELETE} />
             <div className="justify-self-end">
-              <Key onClick={handleKey} value="INPUT" />
+              <PlainKey value={KeyMap.INPUT} />
             </div>
           </div>
         </div>
         <div className="flex flex-row justify-around flex-1 mt-5">
           <div>
             <div className="grid grid-cols-2 grid-rows-2 gap-1">
-              <Key onClick={handleKey} value="CTRL" />
-              <Key onClick={handleKey} value="AUX" />
-              <Key onClick={handleKey} value="ALT" />
-              <Key onClick={handleKey} value="TAB" />
+              <PlainKey value={KeyMap.CTRL} />
+              <PlainKey value={KeyMap.AUX} />
+              <PlainKey value={KeyMap.ALT} />
+              <PlainKey value={KeyMap.TAB} />
             </div>
           </div>
 
           <div className="grid grid-flow-col grid-cols-4 grid-rows-2 gap-1">
-            <Key onClick={handleKey} value="PAGE^" />
-            <Key onClick={handleKey} value="PAGEv" />
+            <PlainKey value={KeyMap.PAGE_UP} />
+            <PlainKey value={KeyMap.PAGE_DOWN} />
             <div className="row-span-2">
-              <Key onClick={handleKey} value="<" />
+              <PlainKey value={KeyMap.LEFT} />
             </div>
-            <Key onClick={handleKey} value="^" />
-            <Key onClick={handleKey} value="v" />
+            <PlainKey value={KeyMap.UP} />
+            <PlainKey value={KeyMap.DOWN} />
             <div className="row-span-2">
-              <Key onClick={handleKey} value=">" />
+              <PlainKey value={KeyMap.RIGHT} />
             </div>
           </div>
 
           <div className="grid grid-cols-4 grid-rows-2 gap-1">
-            <Key onClick={handleKey} value="POS" />
-            <Key onClick={handleKey} value="PROG" />
-            <Key onClick={handleKey} value="OFS/SET" />
-            <Key onClick={handleKey} value="CUST1" />
-            <Key onClick={handleKey} value="SYS" />
-            <Key onClick={handleKey} value="MSG" />
-            <Key onClick={handleKey} value="GRAPH" />
-            <Key onClick={handleKey} value="CUST2" />
+            <PlainKey value={KeyMap.POSITION} />
+            <PlainKey value={KeyMap.PROGRAM} />
+            <PlainKey value={KeyMap.OFFSET_SETTINGS} />
+            <PlainKey value={KeyMap.CUSTOM_1} />
+            <PlainKey value={KeyMap.SYSTEM} />
+            <PlainKey value={KeyMap.MESSAGES} />
+            <PlainKey value={KeyMap.GRAPH} />
+            <PlainKey value={KeyMap.CUSTOM_2} />
           </div>
         </div>
       </div>

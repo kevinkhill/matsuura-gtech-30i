@@ -1,18 +1,33 @@
-import React, { useState } from "react";
+import React, { ReactElement, ReactNode, ReactText } from "react";
 import Head from "next/head";
 
 import TitleBar from "../components/Monitor/TitleBar";
 import SoftKey from "../components/Monitor/SoftKey";
 
-export default function Monitor() {
-  const [content, setContent] = useState([]);
+import {
+  MessagesPage,
+  GraphPage,
+  OffsetsPage,
+  PositionPage,
+  SettingsPage,
+  SystemPage
+} from "../components/OS/Pages";
 
+const keyPageTable: Record<string, ReactNode> = {
+  SYS: SystemPage,
+  OFF: OffsetsPage,
+  MSG: MessagesPage,
+  POS: PositionPage,
+  SET: SettingsPage,
+  GRPH: GraphPage
+};
+
+export default function Monitor({ controlPage, machineMode }) {
   const handleSoftKey = (key: string) => {
-    setContent(prev => {
-      console.log("softkey", key);
-      return [...prev, `softkey pressed: ${key}`];
-    });
+    console.log(key);
   };
+
+  const CurrentPage = () => keyPageTable[controlPage] ?? <></>;
 
   return (
     <div className="container m-auto bg-black">
@@ -21,18 +36,16 @@ export default function Monitor() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="px-5 py-2 bg-panel-gray border-">
+      <div className="px-5 py-2 rounded bg-panel-gray">
         <div className="flex flex-col gap-2">
           <div className="mb-8">
             <TitleBar />
           </div>
           <div className="flex flex-row gap-1">
-            <div className="flex-grow p-2 ml-5 bg-gray-500 border-2 border-black">
-              <ul className="list-none">
-                {content.map(text => (
-                  <li key={text}>{text}</li>
-                ))}
-              </ul>
+            <div className="flex-grow p-2 ml-5 bg-transparent border-2 border-black">
+              <div className="flex flex-grow-0 h-auto overflow-y-auto">
+                <MessagesPage messages />
+              </div>
             </div>
             <div className="flex flex-col gap-3 py-4 px-1.5 well-border">
               <div className="flex flex-col gap-1">

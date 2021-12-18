@@ -1,3 +1,5 @@
+import React from "react";
+
 const SoftKey = ({ onClick, value }) => {
   return (
     <button

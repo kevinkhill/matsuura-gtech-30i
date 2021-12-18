@@ -1,3 +1,5 @@
+import React from "react";
+
 import LED from "./LED";
 
 type PanelIndicatorProps = {
@@ -7,8 +9,8 @@ type PanelIndicatorProps = {
 
 const PanelIndicator: React.FC<PanelIndicatorProps> = ({ on, label }) => {
   return (
-    <div className="h-6 p-1 flex">
-      <div className="p-2 flex-shrink">
+    <div className="flex h-6 p-1">
+      <div className="flex-shrink p-2">
         <LED on={on ?? false} />
       </div>
       <div className="flex-shrink">

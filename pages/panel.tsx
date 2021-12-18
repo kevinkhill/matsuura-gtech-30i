@@ -6,30 +6,23 @@ import Head from "next/head";
 import { toggle } from "../core/util";
 import Button from "../components/Button";
 import PanelGroup from "../components/PanelGroup";
+import {
+  AxisButtons,
+  ModeButtons,
+  HandyButtons,
+  SpindleGroup,
+  ToggleButtons,
+  CoolantButtons,
+  StatusIndicators,
+  DirectionButtons,
+  HandleIncrementButtons
+} from "../components/PanelGroups";
 
-import AxisButtons from "../components/PanelGroups/AxisButtons";
-import ModeButtons from "../components/PanelGroups/ModeButtons";
-import HandyButtons from "../components/PanelGroups/HandyButtons";
-import SpindleGroup from "../components/PanelGroups/SpindleGroup";
-import ToggleButtons from "../components/PanelGroups/ToggleButtons";
-import CoolantButtons from "../components/PanelGroups/CoolantButtons";
-import StatusIndicators from "../components/PanelGroups/StatusIndicators";
-import DirectionButtons from "../components/PanelGroups/DirectionButtons";
-import HandleIncrementButtons from "../components/PanelGroups/HandleIncrementButtons";
-
-function onHandleIncrementChange(selectedInc: string) {
-  console.log("handle increment changed:", selectedInc);
-}
-
-function onHandleAxisChange(selectedAxis: string) {
-  console.log("handle axis changed:", selectedAxis);
-}
-
-function onModeChange(selectedAxis: string) {
-  console.log("handle axis changed:", selectedAxis);
-}
-
-export default function Panel() {
+export default function Panel({
+  onModeChange,
+  onHandleAxisChange,
+  onHandleIncrementChange
+}) {
   // Status Indicator Group
   const [ALARM, setLed_ALARM] = useState(false);
   const [M0_M1, setLed_M0M1] = useState(false);
@@ -48,6 +41,10 @@ export default function Panel() {
 
   const loggit = (...args) => {
     console.log(args);
+  };
+
+  const handleModeChange = (selectedAxis: string) => {
+    onModeChange(selectedAxis);
   };
 
   return (
@@ -112,7 +109,7 @@ export default function Panel() {
               </div>
               <div className="flex flex-col">
                 <div className="">
-                  <ModeButtons handler={onModeChange} />
+                  <ModeButtons handler={handleModeChange} />
                 </div>
                 <div>
                   <AxisButtons handler={onHandleAxisChange} />
