@@ -4,12 +4,28 @@ body {
   background-color: #000;
 }
 
-.bg-panel-gray {
+.panel-frame {
+  @apply rounded;
   background-color: #555;
 }
 
 .font-mono-dro {
   font-family: "Syne Mono", monospace;
+}
+
+.raised-border {
+  @apply border-l border-l-slate-400
+    border-t border-t-slate-400
+    border-r border-r-slate-800
+    border-b border-b-slate-800;
+}
+
+.screen-border {
+  @apply rounded
+    border-l-2 border-l-zinc-800
+    border-t-2 border-t-zinc-800
+    border-r-2 border-r-zinc-400
+    border-b-2 border-b-zinc-400;
 }
 
 .well-border {

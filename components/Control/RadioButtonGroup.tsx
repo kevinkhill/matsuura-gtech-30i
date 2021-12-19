@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-import { activateKey } from "../core/util";
-import { ButtonStateMap } from "../types";
+import { activateKey } from "../../core/util";
+import { ButtonStateMap } from "../../types";
 
 import Button, { ButtonProps } from "./Button";
 

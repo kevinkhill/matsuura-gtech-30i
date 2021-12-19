@@ -1,32 +1,18 @@
 import { useState } from "react";
 import Head from "next/head";
 
-import Panel from "./panel";
-import Monitor from "./monitor";
-import Keyboard from "./keyboard";
-import { KeyValues } from "../components/Keyboard/KeyMap";
+import Monitor from "../components/Monitor/Monitor";
+import Keyboard from "../components/Keyboard/Keyboard";
+import MachineControl from "../components/Control/MachineControl";
+import KeyMap, { KeyValues } from "../components/Keyboard/KeyMap";
 
-interface DefaultProps {
-  pageOnBoot: string;
-  modeOnBoot: string;
-}
+export default function Home() {
+  const [machineMode, setMachineMode] = useState<KeyValues>(KeyMap.MESSAGES);
 
-const bootOptions = {
-  pageOnBoot: "MSG",
-  modeOnBoot: "PRG"
-};
-
-export default function Home({
-  pageOnBoot,
-  modeOnBoot
-}: DefaultProps = bootOptions) {
-  const [currentPage, setCurrentPage] = useState(pageOnBoot);
-  const [currentMode, setCurrentMode] = useState(modeOnBoot);
-
-  const keyHandler = (key: KeyValues) => {
+  const onKeyboardKey = (key: KeyValues) => {
     console.log("Key Pressed:", key);
-    if (key.label === "") {
-    }
+
+    if (key.group === "MODE") setMachineMode(key);
   };
 
   const onModeChange = (mode: string) => {
@@ -49,9 +35,9 @@ export default function Home({
       </Head>
 
       <div className="pt-5">
-        <Monitor controlPage={currentPage} machineMode={currentMode} />
-        <Keyboard onKeypress={keyHandler} />
-        <Panel
+        <Monitor machineMode={machineMode} />
+        <Keyboard onKeypress={onKeyboardKey} />
+        <MachineControl
           onModeChange={onModeChange}
           onHandleAxisChange={onHandleAxisChange}
           onHandleIncrementChange={onHandleIncrementChange}
