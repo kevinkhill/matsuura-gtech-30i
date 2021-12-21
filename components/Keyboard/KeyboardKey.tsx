@@ -1,6 +1,5 @@
 import React from "react";
-
-import { KeyValues } from "./KeyMap";
+import { KeyValues } from "@/types/keys";
 
 interface KeyProps {
   white?: boolean;

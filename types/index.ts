@@ -1,10 +1,6 @@
-import { MouseEvent } from "react";
-import { AppProps as NextAppProps } from "next/app";
+import { AppProps } from "./app";
+import { ButtonStateMap } from "./buttons";
+import { OnClickEvent } from "./events";
+import { KeyValues } from "./keys";
 
-export type ButtonStateMap = Record<string, boolean>;
-
-export type OnClickEvent = MouseEvent<HTMLButtonElement, MouseEvent>;
-
-export type AppProps<P = unknown> = {
-  pageProps: P;
-} & Omit<NextAppProps<P>, "pageProps">;
+export type { AppProps, KeyValues, ButtonStateMap, OnClickEvent };

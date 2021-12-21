@@ -2,20 +2,15 @@ import React from "react";
 
 import TitleBar from "./TitleBar";
 import SoftKey from "./SoftKey";
-import { KeyValues } from "../Keyboard/KeyMap";
 
 interface MonitorProps {
-  machineMode: KeyValues;
+  content: JSX.Element;
 }
 
-export default function Monitor({ machineMode }: MonitorProps) {
+export default function Monitor({ content }: MonitorProps) {
   const handleSoftKey = (key: string) => {
-    console.log(key);
+    console.log("softkey:", key);
   };
-
-  const content = (
-    <div className="w-full h-full bg-sky-200">Screen Content</div>
-  );
 
   return (
     <div className="px-5 py-2 panel-frame">
@@ -25,7 +20,7 @@ export default function Monitor({ machineMode }: MonitorProps) {
         </div>
         <div className="flex flex-row gap-1">
           <div className="flex-grow ml-5 bg-black screen-border">
-            <div className="flex flex-grow-0 h-auto overflow-y-auto">
+            <div className="flex flex-grow-0 h-auto overflow-y-auto text-white">
               {content}
             </div>
           </div>

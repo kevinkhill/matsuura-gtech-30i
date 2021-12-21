@@ -1,19 +1,6 @@
-type KeyGroup =
-  | "MODE"
-  | "EDIT"
-  | "NAV"
-  | "ALPHA"
-  | "NUMBER"
-  | "SYMBOL"
-  | "FUNC";
+import { KeyValues } from "@/types/keys";
 
-export interface KeyValues {
-  group: KeyGroup;
-  label: string;
-  shftLabel?: string;
-}
-
-function defineKey(group: KeyGroup, label = "", shftLabel = "") {
+function defineKey(group: KeyValues["group"], label = "", shftLabel = "") {
   return { group, label, shftLabel };
 }
 
@@ -60,7 +47,7 @@ export const ModeKeys = {
   PROGRAM: defineKey("MODE", "PROG"),
   CUSTOM_1: defineKey("MODE", "CUST1"),
   CUSTOM_2: defineKey("MODE", "CUST2"),
-  OFFSET_SETTINGS: defineKey("MODE", "OFS/SET")
+  OFF_SET: defineKey("MODE", "OFS/SET")
 };
 
 export const NumberKeys = {

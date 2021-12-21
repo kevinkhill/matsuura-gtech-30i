@@ -1,7 +1,8 @@
 import React from "react";
+import { KeyValues } from "@/types/keys";
 
+import KeyMap from "./KeyMap";
 import KeyboardKey from "./KeyboardKey";
-import KeyMap, { KeyValues } from "./KeyMap";
 
 export default function Keyboard({ onKeypress }) {
   const handler = (key: KeyValues) => {
@@ -106,7 +107,7 @@ export default function Keyboard({ onKeypress }) {
         <div className="grid grid-cols-4 grid-rows-2 gap-1">
           <PlainKey value={KeyMap.POSITION} />
           <PlainKey value={KeyMap.PROGRAM} />
-          <PlainKey value={KeyMap.OFFSET_SETTINGS} />
+          <PlainKey value={KeyMap.OFF_SET} />
           <PlainKey value={KeyMap.CUSTOM_1} />
           <PlainKey value={KeyMap.SYSTEM} />
           <PlainKey value={KeyMap.MESSAGES} />
