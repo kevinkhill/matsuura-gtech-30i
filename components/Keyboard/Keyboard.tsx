@@ -1,24 +1,19 @@
 import React from "react";
-import { KeyValues } from "@/types/keys";
 
 import KeyMap from "./KeyMap";
 import KeyboardKey from "./KeyboardKey";
 
 export default function Keyboard({ onKeypress }) {
-  const handler = (key: KeyValues) => {
-    onKeypress(key);
-  };
-
   const PlainKey = ({ value }) => (
-    <KeyboardKey onClick={handler} value={value} />
+    <KeyboardKey onClick={onKeypress} value={value} />
   );
 
   const WhiteKey = ({ value }) => (
-    <KeyboardKey white onClick={handler} value={value} />
+    <KeyboardKey white onClick={onKeypress} value={value} />
   );
 
   // const padding = "px-32 py-24";
-  const padding = "p-2";
+  const padding = "px-24 py-5";
 
   return (
     <div className={`${padding} text-xs panel-frame`}>

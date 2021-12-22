@@ -27,7 +27,7 @@ function CounterDisplay() {
 
 const MessagesPage = ({ messages }) => {
   return (
-    <div className="bg-cyan-300">
+    <div className="p-5 bg-cyan-900">
       <h1>Messages</h1>
       <ul className="list-none">
         {messages.map(text => (

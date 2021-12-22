@@ -5,7 +5,7 @@ const ProgramPage = () => {
   const content = [];
 
   return (
-    <div className="bg-orange-300">
+    <div className="w-full h-full bg-neutral-500">
       <h1>Program</h1>
       <ul className="list-none">
         {content.map(text => (

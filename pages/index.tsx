@@ -3,13 +3,14 @@ import { createContainer } from "unstated-next";
 import { match } from "ts-pattern";
 import Head from "next/head";
 
+import { useRouter } from "next/router";
 import { KeyValues } from "@/types/keys";
 import KeyMap from "@/components/Keyboard/KeyMap";
 import Monitor from "@/components/Monitor/Monitor";
 import Keyboard from "@/components/Keyboard/Keyboard";
 import MachineControl from "@/components/Control/MachineControl";
 import OperatingSystem from "@/components/OS/OperatingSystem";
-import { DisplayStateStrings } from "@/types/DisplayState";
+import { DisplayState, DisplayStateStrings } from "@/types/DisplayState";
 
 const onModeChange = (mode: string) => {
   console.log("handle mode changed:", mode);
@@ -23,10 +24,23 @@ const onHandleAxisChange = (selectedAxis: string) => {
   console.log("handle axis changed:", selectedAxis);
 };
 
+const onSoftKey = (key: string) => {
+  console.log("softkey:", key);
+};
+
 export default function Home() {
   const [showControls, setShowControls] = useState(false);
   const [displayState, setDisplayState] =
-    useState<DisplayStateStrings>("BOOTING");
+    useState<DisplayStateStrings>("POWER_OFF");
+
+  const router = useRouter();
+  const initScreen = router.query?.screen as DisplayStateStrings;
+
+  useEffect(() => {
+    if (Object.keys(DisplayState).includes(initScreen)) {
+      setDisplayState(initScreen);
+    }
+  }, [initScreen]);
 
   const onKeyboardKey = (key: KeyValues) => {
     console.log("Keyboard Key Pressed:", key);
@@ -62,8 +76,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="pt-5">
-        <Monitor content={os} />
+      <div className="pt-1 divide-y-2 divide-black">
+        <Monitor onSoftKey={onSoftKey} content={os} />
         <Keyboard onKeypress={onKeyboardKey} />
         {showControls && (
           <MachineControl
