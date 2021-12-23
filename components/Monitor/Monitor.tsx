@@ -24,8 +24,8 @@ export default function Monitor({ content, onSoftKey }: MonitorProps) {
           <TitleBar />
         </div>
         <div className="flex flex-row gap-1">
-          <div className="flex-grow ml-5 bg-black screen-border">
-            <div className="flex flex-grow-0 h-full overflow-y-auto text-white">
+          <div className="ml-5 bg-black grow screen-border">
+            <div className="flex h-full overflow-y-auto text-white">
               {content}
             </div>
           </div>

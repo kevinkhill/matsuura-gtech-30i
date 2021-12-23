@@ -5,7 +5,7 @@ const PositionPage = () => {
   const content = [];
 
   return (
-    <div className="w-full bg-indigo-700">
+    <div className="bg-indigo-700 grow">
       <h1>Position</h1>
       <ul className="list-none">
         {content.map(text => (

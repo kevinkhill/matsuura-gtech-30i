@@ -5,7 +5,7 @@ const GraphPage = () => {
   const content = [];
 
   return (
-    <div className="bg-red-300">
+    <div className="bg-red-300 grow">
       <h1>Graph</h1>
       <ul className="list-none">
         {content.map(text => (

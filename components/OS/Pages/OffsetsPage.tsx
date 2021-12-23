@@ -5,13 +5,8 @@ const OffsetsPage = () => {
   const content = [];
 
   return (
-    <div className="bg-yellow-300">
-      <h1>Offsets</h1>
-      <ul className="list-none">
-        {content.map(text => (
-          <li key={text}>{text}</li>
-        ))}
-      </ul>
+    <div className="p-2 text-black bg-yellow-100 grow">
+      <h1 className="text-4xl text-amber-900">Offsets</h1>
     </div>
   );
 };

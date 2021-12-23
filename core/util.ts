@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { ButtonStateMap } from "../types";
 
 type BooleanStateSetter = React.Dispatch<React.SetStateAction<boolean>>;
@@ -23,4 +24,8 @@ export function activateKey(
   });
 
   return newMap;
+}
+
+export function useConsoleWatch(varToLog: unknown): void {
+  useEffect(() => console.log(varToLog), [varToLog]);
 }

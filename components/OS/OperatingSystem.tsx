@@ -1,15 +1,18 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { Component, useState } from "react";
 import { DisplayStateStrings } from "@/types/DisplayState";
+import CurrentTime from "@/core/context/CurrentTime";
 
-import BootScreen from "./Screens/BootScreen";
-import ProgramPage from "./Pages/ProgramPage";
 import GraphPage from "./Pages/GraphPage";
-import MessagesPage from "./Pages/MessagesPage";
+import SystemPage from "./Pages/SystemPage";
 import OffsetsPage from "./Pages/OffsetsPage";
+import ProgramPage from "./Pages/ProgramPage";
+import MessagesPage from "./Pages/MessagesPage";
 import PositionPage from "./Pages/PositionPage";
 import SettingsPage from "./Pages/SettingsPage";
-import SystemPage from "./Pages/SystemPage";
+import BootScreen from "./Screens/BootScreen";
+import AppSettings from "./Pages/AppSettings";
+import HandyManPage from "./Pages/HandyManPage";
 
 interface OsProps {
   displayState: DisplayStateStrings;
@@ -24,17 +27,18 @@ class OperatingSystem extends Component<OsProps, OsState> {
     messages: []
   };
 
-  // constructor(props) {
-  //   super(props);
+  constructor(props) {
+    super(props);
 
-  //   this.state.displayState = this.props.displayState;
-  // }
+    // this.state.displayState = this.props.displayState;
+    this.getActivePage.bind(this);
+  }
 
   // componentDidMount(): void {
   //   console.log(this.props.router.query);
   // }
 
-  render() {
+  private getActivePage() {
     const { messages } = this.state;
     const { displayState } = this.props;
 
@@ -56,14 +60,18 @@ class OperatingSystem extends Component<OsProps, OsState> {
       case "GRAPH":
         return <GraphPage />;
       case "CUSTOM_1":
-        return <h1>Custom 1</h1>;
+        return <HandyManPage />;
       case "CUSTOM_2":
-        return <h1>Custom 2</h1>;
+        return <AppSettings messages={[]} />;
       case "POWER_OFF":
         return <h1>Power is off...</h1>;
       default:
-        return <h1>EEEEEEEEERRRRRRRRoOOOR</h1>;
+        return <h1 className="text-red-600">EEEEEEEEERRRRRRRRoOOOR</h1>;
     }
+  }
+
+  render() {
+    return <CurrentTime.Provider>{this.getActivePage()}</CurrentTime.Provider>;
   }
 }
 

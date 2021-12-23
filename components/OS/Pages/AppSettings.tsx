@@ -25,7 +25,7 @@ function CounterDisplay() {
   );
 }
 
-const MessagesPage = ({ messages }) => {
+const AppSettings = ({ messages }) => {
   return (
     <div className="p-5 grow bg-cyan-900">
       <h1>Messages</h1>
@@ -41,4 +41,4 @@ const MessagesPage = ({ messages }) => {
   );
 };
 
-export default MessagesPage;
+export default AppSettings;

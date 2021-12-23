@@ -5,7 +5,7 @@ const SettingsPage = () => {
   const content = [];
 
   return (
-    <div className="bg-slate-300">
+    <div className="bg-fuchsia-700 grow">
       <h1>Settings</h1>
       <ul className="list-none">
         {content.map(text => (

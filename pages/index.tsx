@@ -33,9 +33,11 @@ export default function Home() {
   const [displayState, setDisplayState] =
     useState<DisplayStateStrings>("POWER_OFF");
 
+  /**
+   * If there route param `screen=PROGRAM` then set it as the initial screen
+   */
   const router = useRouter();
   const initScreen = router.query?.screen as DisplayStateStrings;
-
   useEffect(() => {
     if (Object.keys(DisplayState).includes(initScreen)) {
       setDisplayState(initScreen);

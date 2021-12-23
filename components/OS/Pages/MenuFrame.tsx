@@ -5,7 +5,7 @@ const MenuFrame = () => {
   const content = [];
 
   return (
-    <div className="w-full h-full bg-neutral-500">
+    <div className="grow bg-neutral-500">
       <div className="flex">
         <div className="flex-initial">PROGRAM</div>
         <div />
