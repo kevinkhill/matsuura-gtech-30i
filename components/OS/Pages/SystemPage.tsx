@@ -5,7 +5,7 @@ const SystemPage = () => {
   const content = [];
 
   return (
-    <div className="bg-cyan-300">
+    <div className="w-full bg-pink-600">
       <h1>System</h1>
       <ul className="list-none">
         {content.map(text => (
