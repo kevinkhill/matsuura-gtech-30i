@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { createContainer } from "unstated-next";
-import { match } from "ts-pattern";
 import Head from "next/head";
+import { match } from "ts-pattern";
 
 import { useRouter } from "next/router";
 import { KeyValues } from "@/types/keys";
