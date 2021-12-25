@@ -1,7 +1,6 @@
 /* eslint-disable react/destructuring-assignment */
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import { DisplayStateStrings } from "@/types/DisplayState";
-import CurrentTime from "@/core/context/CurrentTime";
 
 import GraphPage from "./Pages/GraphPage";
 import SystemPage from "./Pages/SystemPage";
@@ -10,9 +9,9 @@ import ProgramPage from "./Pages/ProgramPage";
 import MessagesPage from "./Pages/MessagesPage";
 import PositionPage from "./Pages/PositionPage";
 import SettingsPage from "./Pages/SettingsPage";
-import BootScreen from "./Screens/BootScreen";
 import AppSettings from "./Pages/AppSettings";
 import HandyManPage from "./Pages/HandyManPage";
+import BootScreen from "./Screens/BootScreen";
 
 interface OsProps {
   displayState: DisplayStateStrings;
@@ -27,18 +26,7 @@ class OperatingSystem extends Component<OsProps, OsState> {
     messages: []
   };
 
-  constructor(props) {
-    super(props);
-
-    // this.state.displayState = this.props.displayState;
-    this.getActivePage.bind(this);
-  }
-
-  // componentDidMount(): void {
-  //   console.log(this.props.router.query);
-  // }
-
-  private getActivePage() {
+  render() {
     const { messages } = this.state;
     const { displayState } = this.props;
 
@@ -68,10 +56,6 @@ class OperatingSystem extends Component<OsProps, OsState> {
       default:
         return <h1 className="text-red-600">EEEEEEEEERRRRRRRRoOOOR</h1>;
     }
-  }
-
-  render() {
-    return <CurrentTime.Provider>{this.getActivePage()}</CurrentTime.Provider>;
   }
 }
 

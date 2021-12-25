@@ -2,12 +2,12 @@
 @import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 
 @font-face {
-    font-family: 'ModeNine';
-    src: url('/fonts/ModeNine.woff2') format('woff2'),
-        url('/fonts/ModeNine.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
+  font-family: "ModeNine";
+  src: url("/fonts/ModeNine.woff2") format("woff2"),
+    url("/fonts/ModeNine.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 body {
@@ -16,6 +16,22 @@ body {
 
 .font-lcd {
   font-family: "ModeNine", "VT323", monospace;
+}
+
+.outline-1-black {
+  box-shadow: 0 0 0 1px black;
+  /* outline: 1px solid black; */
+}
+
+/*
+.menu-boxes > div {
+} */
+
+.raised-button-edge {
+  @apply border-t-2 border-t-gray-200
+    border-l-2 border-l-gray-400
+    border-r-2 border-r-gray-800
+    border-b-2 border-b-gray-800;
 }
 
 .panel-frame {
