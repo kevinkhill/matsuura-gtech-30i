@@ -1,7 +1,7 @@
 import React from "react";
 
 import MenuBar from "./MenuBar";
-import TopBar from "./Pages/TopBar";
+import TopBar from "./TopBar";
 
 const MenuContainer = ({ content, curentMode, title, path, menuItems }) => {
   return (
