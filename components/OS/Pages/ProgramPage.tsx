@@ -1,25 +1,15 @@
 import React, { useEffect, useState } from "react";
 
+import { Position } from "@/types/Positioning";
+
 import MenuBar from "../MenuBar";
 import TopBar from "../TopBar";
 // import MenuContainer from "../MenuContainer";
-import { toFixed, positionGenerator } from "@/core/util";
-import { Position } from "@/types/Positioning";
-
-const BoxHeading = ({ text }: { text: string }) => {
-  return (
-    <div className="px-2 mx-1 mt-0.5 text-gray-300 bg-blue-800">{text}</div>
-  );
-};
-
-const AxisReadout = ({ textSize, axis, value, precision = 4 }) => {
-  return (
-    <div className="flex">
-      <div className={`text-${textSize} text-blue-800 grow`}>{axis}</div>
-      <div className={`text-${textSize}`}>{toFixed(value, precision)}</div>
-    </div>
-  );
-};
+import CurrentCommands from "./Program/CurrentCommands";
+import AxisReadout from "../Layout/AxisReadout";
+import BoxHeading from "../Layout/BoxHeading";
+import SmallDro from "./Program/GenericReadout";
+import GenericReadout from "./Program/GenericReadout";
 
 const ProgramPage = () => {
   const [menuItems, setMenuItems] = useState([
@@ -47,6 +37,10 @@ const ProgramPage = () => {
   const [currentM, setCurrentM] = useState(5);
   const [currentFeedrate, setCurrentFeedrate] = useState(0.0);
 
+  const [currentGcodes, setCurrentGcodes] = useState([
+    1, 17, 40, 54, 80, 49, 90, 98, 69, 13.1
+  ]);
+
   const [position, setPosition] = useState<Position>({
     X: 9.9137,
     Y: 15.9736,
@@ -70,14 +64,13 @@ const ProgramPage = () => {
     B: 0.0
   });
 
-  useEffect(() => {
-    const id = setInterval(() => {
-      setPosition(nextDist);
-      setNextDist(positionGenerator());
-    }, 2000);
-
-    return () => clearInterval(id);
-  }, [nextDist]);
+  // useEffect(() => {
+  //   const id = setInterval(() => {
+  //     setPosition(nextDist);
+  //     setNextDist(positionGenerator());
+  //   }, 2000);
+  //   return () => clearInterval(id);
+  // }, [nextDist]);
 
   return (
     <div className="flex flex-col text-black bg-gray-400 font-lcd grow">
@@ -85,57 +78,33 @@ const ProgramPage = () => {
       <div className="grid grid-flow-col grow">
         <div className="flex flex-col row-span-2 divide-y divide-black">
           <div className="flex divide-x divide-black grow">
-            <div className="px-1">
-              <BoxHeading text="ACTUAL POS. (ABS.)" />
-              <div className="flex flex-col">
-                <AxisReadout axis="X" value={position.X} textSize="4xl" />
-                <AxisReadout axis="Y" value={position.Y} textSize="4xl" />
-                <AxisReadout axis="Z" value={position.Z} textSize="4xl" />
-                <AxisReadout
-                  axis="B"
-                  value={position.B}
-                  textSize="4xl"
-                  precision={3}
-                />
-              </div>
-            </div>
+            <GenericReadout
+              title="ACTUAL POS. (ABS.)"
+              size="4xl"
+              X={position.X}
+              Y={position.Y}
+              Z={position.Z}
+              B={position.B}
+            />
             <div className="grid grid-flow-row divide-y divide-black">
-              <div className="px-1">
-                <BoxHeading text="DIST TO GO" />
-                <div className="flex flex-col">
-                  <div className="flex">
-                    <div className="text-lg text-blue-800">G</div>
-                    <div className="text-lg">0{distToGoCmd}</div>
-                  </div>
-                  <AxisReadout axis="X" value={distToGo.X} textSize="lg" />
-                  <AxisReadout axis="Y" value={distToGo.Y} textSize="lg" />
-                  <AxisReadout axis="Z" value={distToGo.Z} textSize="lg" />
-                  <AxisReadout
-                    axis="B"
-                    textSize="lg"
-                    precision={3}
-                    value={distToGo.B}
-                  />
-                </div>
-              </div>
-              <div className="px-1">
-                <BoxHeading text="NEXT DIST" />
-                <div className="flex flex-col">
-                  <div className="flex">
-                    <div className="text-lg text-blue-800">G</div>
-                    <div className="text-lg">0{nextDistCmd}</div>
-                  </div>
-                  <AxisReadout axis="X" value={nextDist.X} textSize="lg" />
-                  <AxisReadout axis="Y" value={nextDist.Y} textSize="lg" />
-                  <AxisReadout axis="Z" value={nextDist.Z} textSize="lg" />
-                  <AxisReadout
-                    axis="B"
-                    textSize="lg"
-                    precision={3}
-                    value={nextDist.B}
-                  />
-                </div>
-              </div>
+              <GenericReadout
+                title="DIST TO GO"
+                size="md"
+                X={distToGo.X}
+                Y={distToGo.Y}
+                Z={distToGo.Z}
+                B={distToGo.B}
+                G={distToGoCmd}
+              />
+              <GenericReadout
+                title="NEXT DIST"
+                size="md"
+                X={nextDist.X}
+                Y={nextDist.Y}
+                Z={nextDist.Z}
+                B={nextDist.B}
+                G={nextDistCmd}
+              />
             </div>
           </div>
           <div>
@@ -145,53 +114,26 @@ const ProgramPage = () => {
         </div>
 
         <div className="border-l border-black">
-          <div className="flex flex-col">
-            <div className="flex">
-              <div className="pr-2 text-lg text-blue-800">O</div>
-              <div className="text-lg">{programNum}</div>
-            </div>
-            <div className="flex">
-              <div className="pr-2 text-lg text-blue-800">N</div>
-              <div className="text-lg">{nLine}</div>
-            </div>
-            <div className="flex">
-              <div className="pr-16 text-lg text-blue-800">HD.T</div>
-              <div className="text-lg">{currentTool}</div>
-            </div>
-            <div className="flex flex-row">
-              <div className="flex pr-10">
-                <div className="pr-2 text-lg text-blue-800">D</div>
-                <div className="text-lg">{currentD}</div>
-              </div>
-              <div className="flex">
-                <div className="pr-2 text-lg text-blue-800">H</div>
-                <div className="text-lg">{currentH}</div>
-              </div>
-            </div>
-            <div className="flex flex-row">
-              <div className="flex pr-10">
-                <div className="pr-8 text-lg text-blue-800">S</div>
-                <div className="text-lg">{currentS}</div>
-              </div>
-              <div className="flex">
-                <div className="text-lg text-blue-800">M</div>
-                <div className="text-lg">{currentM}</div>
-              </div>
-            </div>
-            <div className="flex">
-              <div className="pr-16 text-lg text-blue-800">F</div>
-              <div className="text-lg">{toFixed(currentFeedrate, 8)}</div>
-            </div>
-          </div>
+          <CurrentCommands
+            nLine={nLine}
+            programNum={programNum}
+            currentD={currentD}
+            currentH={currentH}
+            currentS={currentS}
+            currentM={currentM}
+            currentTool={currentTool}
+            currentGcodes={currentGcodes}
+            currentFeedrate={currentFeedrate}
+          />
         </div>
-        <div className="bg-indigo-300">program</div>
+        <div className="bg-indigo-100">program</div>
       </div>
       <div className="grid grid-cols-2 text-gray-800 shrink">
         <div className="p-1">
           <div className="h-full border-t border-b border-l border-r border-l-neutral-700 border-t-neutral-700 border-r-neutral-300 border-b-neutral-300" />
         </div>
         <div className="p-1">
-          <div className="h-full py-px bg-white">
+          <div className="h-full py-px bg-white border-t border-b border-l border-r border-l-neutral-700 border-t-neutral-700 border-r-neutral-300 border-b-neutral-300">
             <div className="w-2 h-4 bg-blue-800" />
           </div>
         </div>
