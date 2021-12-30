@@ -10,9 +10,9 @@ When visited [directly to the homepage](https://matsuura-gtech-30i.netlify.app/)
 Program Page | https://matsuura-gtech-30i.netlify.app?screen=PROGRAM
 Position Page | https://matsuura-gtech-30i.netlify.app?screen=POSITION
 Offset Page | https://matsuura-gtech-30i.netlify.app?screen=OFFSET
-Settings Page | https://matsuura-gtech-30i.netlify.app?screen=SETTING
+Settings Page | https://matsuura-gtech-30i.netlify.app?screen=SETTINGS
 System Page | https://matsuura-gtech-30i.netlify.app?screen=SYSTEM
-Messages Page | https://matsuura-gtech-30i.netlify.app?screen=MESSAGE
+Messages Page | https://matsuura-gtech-30i.netlify.app?screen=MESSAGES
 Graph Page | https://matsuura-gtech-30i.netlify.app?screen=GRAPH
 Handyman Page (Custom 1) | https://matsuura-gtech-30i.netlify.app?screen=CUSTOM_1
 Webapp Settings (Custom 2) | https://matsuura-gtech-30i.netlify.app?screen=CUSTOM_2
