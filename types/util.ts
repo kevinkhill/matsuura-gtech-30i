@@ -1,4 +1,4 @@
-export type AxisRecord<K> = Record<K, number>;
+export type AxisRecord<T extends string> = Record<T, number>;
 
 export type MachineAxis = "X" | "Y" | "Z" | "B";
 
