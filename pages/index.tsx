@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import { match } from "ts-pattern";
 
-import { useRouter } from "next/router";
-import { KeyValues } from "@/types/keys";
+import MachineControl from "@/components/Control/MachineControl";
+import Keyboard from "@/components/Keyboard/Keyboard";
 import KeyMap from "@/components/Keyboard/KeyMap";
 import Monitor from "@/components/Monitor/Monitor";
-import Keyboard from "@/components/Keyboard/Keyboard";
-import MachineControl from "@/components/Control/MachineControl";
 import OperatingSystem from "@/components/OS/OperatingSystem";
 import { DisplayState, DisplayStateStrings } from "@/types/DisplayState";
+import { KeyValues } from "@/types/keys";
 
 const onModeChange = (mode: string) => {
   console.log("handle mode changed:", mode);

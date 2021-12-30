@@ -1,8 +1,8 @@
 import React from "react";
 
-import TitleBar from "./TitleBar";
 // eslint-disable-next-line import/no-named-default
 import { default as Key } from "./SoftKey";
+import TitleBar from "./TitleBar";
 
 interface MonitorProps {
   content: JSX.Element;
@@ -25,9 +25,7 @@ export default function Monitor({ content, onSoftKey }: MonitorProps) {
         </div>
         <div className="flex flex-row gap-1">
           <div className="ml-5 bg-black grow screen-border">
-            <div className="flex h-full overflow-y-auto text-white">
-              {content}
-            </div>
+            <div className="flex h-full">{content}</div>
           </div>
           <div className="flex flex-col gap-3 py-4 px-1.5 well-border">
             <div className="flex flex-col gap-1">

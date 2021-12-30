@@ -2,21 +2,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState } from "react";
 
+import { toggle } from "../../core/util";
 import Button from "./Button";
 import PanelGroup from "./PanelGroup";
 import {
   AxisButtons,
-  ModeButtons,
-  HandyButtons,
-  SpindleGroup,
-  ToggleButtons,
   CoolantButtons,
-  StatusIndicators,
   DirectionButtons,
-  HandleIncrementButtons
+  HandleIncrementButtons,
+  HandyButtons,
+  ModeButtons,
+  SpindleGroup,
+  StatusIndicators,
+  ToggleButtons
 } from "./PanelGroups";
-
-import { toggle } from "../../core/util";
 
 export default function MachineControl({
   onModeChange,

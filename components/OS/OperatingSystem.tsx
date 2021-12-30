@@ -1,16 +1,17 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { Component } from "react";
+
 import { DisplayStateStrings } from "@/types/DisplayState";
 
-import GraphPage from "./Pages/GraphPage";
-import SystemPage from "./Pages/SystemPage";
-import OffsetsPage from "./Pages/OffsetsPage";
-import ProgramPage from "./Pages/ProgramPage";
-import MessagesPage from "./Pages/MessagesPage";
-import PositionPage from "./Pages/PositionPage";
-import SettingsPage from "./Pages/SettingsPage";
 import AppSettings from "./Pages/AppSettings";
+import GraphPage from "./Pages/GraphPage";
 import HandyManPage from "./Pages/HandyManPage";
+import MessagesPage from "./Pages/MessagesPage";
+import OffsetsPage from "./Pages/OffsetsPage";
+import PositionPage from "./Pages/PositionPage";
+import ProgramPage from "./Pages/ProgramPage";
+import SettingsPage from "./Pages/SettingsPage";
+import SystemPage from "./Pages/SystemPage";
 import BootScreen from "./Screens/BootScreen";
 
 interface OsProps {

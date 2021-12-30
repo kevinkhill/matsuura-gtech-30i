@@ -1,21 +1,21 @@
 import AxisButtons from "./AxisButtons";
-import ModeButtons from "./ModeButtons";
-import HandyButtons from "./HandyButtons";
-import SpindleGroup from "./SpindleGroup";
-import ToggleButtons from "./ToggleButtons";
 import CoolantButtons from "./CoolantButtons";
-import StatusIndicators from "./StatusIndicators";
 import DirectionButtons from "./DirectionButtons";
 import HandleIncrementButtons from "./HandleIncrementButtons";
+import HandyButtons from "./HandyButtons";
+import ModeButtons from "./ModeButtons";
+import SpindleGroup from "./SpindleGroup";
+import StatusIndicators from "./StatusIndicators";
+import ToggleButtons from "./ToggleButtons";
 
 export {
   AxisButtons,
-  ModeButtons,
-  HandyButtons,
-  SpindleGroup,
-  ToggleButtons,
   CoolantButtons,
-  StatusIndicators,
   DirectionButtons,
-  HandleIncrementButtons
+  HandleIncrementButtons,
+  HandyButtons,
+  ModeButtons,
+  SpindleGroup,
+  StatusIndicators,
+  ToggleButtons
 };

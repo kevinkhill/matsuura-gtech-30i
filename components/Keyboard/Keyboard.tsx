@@ -1,7 +1,7 @@
 import React from "react";
 
-import KeyMap from "./KeyMap";
 import KeyboardKey from "./KeyboardKey";
+import KeyMap from "./KeyMap";
 
 export default function Keyboard({ onKeypress }) {
   const PlainKey = ({ value }) => (

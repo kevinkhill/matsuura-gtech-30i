@@ -6,8 +6,8 @@ import { MachineAxis, TextSize } from "@/types/util";
 interface AxisReadoutProps {
   axis: MachineAxis;
   value: number;
-  precision: number;
   textSize: TextSize;
+  precision?: number;
 }
 
 export default function AxisReadout({

@@ -1,8 +1,8 @@
 import React from "react";
 
+import GridContainer from "../../GridContainer";
 import { ButtonProps } from "../Button";
 import PanelGroup from "../PanelGroup";
-import GridContainer from "../../GridContainer";
 import RadioButtonGroup from "../RadioButtonGroup";
 
 const buttons: ButtonProps[] = [

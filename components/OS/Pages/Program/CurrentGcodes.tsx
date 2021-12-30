@@ -1,5 +1,5 @@
-import React from "react";
 import { chunk } from "lodash";
+import React from "react";
 
 const GcodeRow = ({ codes }) => {
   return (

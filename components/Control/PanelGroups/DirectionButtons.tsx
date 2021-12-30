@@ -1,7 +1,7 @@
 import React from "react";
 
-import ButtonGroup from "../ButtonGroup";
 import { ButtonProps } from "../Button";
+import ButtonGroup from "../ButtonGroup";
 
 const buttons: ButtonProps[] = [
   { text: "+", plain: true },

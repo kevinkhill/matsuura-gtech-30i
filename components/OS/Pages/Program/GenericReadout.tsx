@@ -1,4 +1,5 @@
 import React from "react";
+
 import { AxisRecord, TextSize } from "@/types/util";
 
 import AxisReadout from "../../Layout/AxisReadout";
