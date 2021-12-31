@@ -23,11 +23,11 @@ export default function Monitor({ content, onSoftKey }: MonitorProps) {
         <div className="mb-8">
           <TitleBar />
         </div>
-        <div className="flex flex-row gap-1">
-          <div className="ml-5 bg-black grow screen-border">
-            <div className="flex h-full">{content}</div>
+        <div className="flex flex-row gap-2 h-[500px]">
+          <div className="flex flex-grow ml-8 bg-black screen-border">
+            {content}
           </div>
-          <div className="flex flex-col gap-3 py-4 px-1.5 well-border">
+          <div className="flex flex-col justify-between py-2 px-1.5 well-border">
             <div className="flex flex-col gap-1">
               <SoftKey value="a1" />
               <SoftKey value="a2" />
@@ -45,18 +45,18 @@ export default function Monitor({ content, onSoftKey }: MonitorProps) {
             </div>
           </div>
         </div>
-        <div className="flex flex-row gap-3 px-4 py-1.5 well-border">
+        <div className="flex flex-row justify-between px-2 py-1.5 mr-8 well-border">
           <div>
             <SoftKey value="<" />
           </div>
-          <div className="flex gap-1">
+          <div className="flex flex-row gap-3">
             <SoftKey value="m1" />
             <SoftKey value="m2" />
             <SoftKey value="m3" />
             <SoftKey value="m4" />
             <SoftKey value="m5" />
           </div>
-          <div className="flex gap-1">
+          <div className="flex flex-row gap-3">
             <SoftKey value="m6" />
             <SoftKey value="m7" />
             <SoftKey value="m8" />

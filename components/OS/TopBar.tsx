@@ -20,7 +20,7 @@ const TopBar = ({ title, path, mode }) => {
   }, []);
 
   return (
-    <div className="flex flex-row bg-gray-300">
+    <div className="flex flex-row bg-gray-100">
       <div className="px-2 text-black grow font-lcd">
         {title} ({path})
       </div>

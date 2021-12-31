@@ -25,7 +25,7 @@ const MenuBar = ({ menuItems = [] }) => {
   const rightItems = menuItems.slice(5, 11);
 
   return (
-    <div className="bg-gray-300">
+    <div className="bg-gray-400">
       <div className="flex gap-2 p-1 text-sm text-blue-800 font-lcd">
         <div className="flex flex-row grow">
           <ArrowButton arrow="<" />

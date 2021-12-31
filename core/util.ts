@@ -1,6 +1,4 @@
-import { useEffect } from "react";
-
-import { Position } from "@/types/Positioning";
+import { Position } from "@/types/position";
 
 import { ButtonStateMap } from "../types";
 
@@ -13,6 +11,12 @@ export function toFixed(num: number, precision = 4): string {
 export function rand(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min) + min);
 }
+
+export const zeroPad = (num: number, zeroCount = 8) =>
+  String(num).padStart(zeroCount, "0");
+
+export const nLine = (num: number, zeroCount = 8) =>
+  `N${zeroPad(num, zeroCount)}`;
 
 export function floatInRange(
   min: number,

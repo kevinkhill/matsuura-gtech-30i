@@ -6,7 +6,7 @@ const OffsetsPage = () => {
 
   return (
     <div className="p-2 text-black bg-yellow-100 grow">
-      <h1 className="text-4xl text-amber-900">Offsets</h1>
+      <h1 className="text-3xl text-amber-900">Offsets</h1>
     </div>
   );
 };

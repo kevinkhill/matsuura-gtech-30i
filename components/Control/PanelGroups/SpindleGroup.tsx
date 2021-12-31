@@ -23,7 +23,7 @@ const SpindleGroup = ({ handler }) => {
     <div className="grid grid-cols-4 gap-1 p-1 place-items-center">
       <Button plain text="100%" onClick={reset} />
       <div className="col-span-3">
-        <div className="text-4xl text-red-glow font-mono-dro">{rpms}%</div>
+        <div className="text-3xl text-red-glow font-mono-dro">{rpms}%</div>
       </div>
       <Button plain text="-" onClick={decrease} />
       <Button plain text="+" onClick={increase} />
