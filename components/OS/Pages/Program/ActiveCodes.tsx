@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { toFixed } from "@/core/util";
 
 import CurrentGcodes from "./CurrentGcodes";
 
-const CurrentCommands = ({
+const ActiveCodes = ({
   nLine,
   programNum,
   currentD,
@@ -60,4 +60,4 @@ const CurrentCommands = ({
   );
 };
 
-export default CurrentCommands;
+export default ActiveCodes;

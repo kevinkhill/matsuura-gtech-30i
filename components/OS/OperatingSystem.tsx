@@ -15,10 +15,11 @@ import SystemPage from "./Pages/SystemPage";
 import BootScreen from "./Screens/BootScreen";
 
 interface OsProps {
+  machineMode: string;
   displayState: DisplayStateStrings;
 }
 
-const OperatingSystem = ({ displayState }: OsProps) => {
+const OperatingSystem = ({ displayState, machineMode }: OsProps) => {
   const [messages, setMessages] = useState(["Testing", "Hi!", "Tacos"]);
   const [program, setProgram] = useState([
     "%",
@@ -45,7 +46,9 @@ const OperatingSystem = ({ displayState }: OsProps) => {
 
   return match(displayState)
     .with("BOOTING", () => <BootScreen />)
-    .with("PROGRAM", () => <ProgramPage program={program} />)
+    .with("PROGRAM", () => (
+      <ProgramPage program={program} machineMode={machineMode} />
+    ))
     .with("POSITION", () => <PositionPage />)
     .with("OFFSET", () => <OffsetsPage />)
     .with("SETTINGS", () => <SettingsPage />)

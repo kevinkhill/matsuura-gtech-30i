@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-const TopBar = ({ title, path, mode }) => {
+interface StatusBarProps {
+  mode: string;
+  title: string;
+}
+
+const StatusBar = ({ title, mode }: StatusBarProps) => {
   const [time, setTime] = useState(new Date());
   const hour = time.getHours();
   const minute = time.getMinutes();
@@ -21,13 +26,11 @@ const TopBar = ({ title, path, mode }) => {
 
   return (
     <div className="flex flex-row bg-gray-100">
-      <div className="px-2 text-black grow font-lcd">
-        {title} ({path})
-      </div>
+      <div className="px-2 text-black grow font-lcd">{title}</div>
       <div className="pr-2 text-green-500 bg-blue-800 font-lcd">{mode}</div>
       <div className="px-2 text-black font-lcd">{currentTime}</div>
     </div>
   );
 };
 
-export default TopBar;
+export default StatusBar;

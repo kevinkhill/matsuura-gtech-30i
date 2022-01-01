@@ -7,15 +7,19 @@ When visited [directly to the homepage](https://matsuura-gtech-30i.netlify.app/)
 
 | Screen | Link |
 |--------|------|
-Program Page | https://matsuura-gtech-30i.netlify.app?screen=PROGRAM
-Position Page | https://matsuura-gtech-30i.netlify.app?screen=POSITION
-Offset Page | https://matsuura-gtech-30i.netlify.app?screen=OFFSET
-Settings Page | https://matsuura-gtech-30i.netlify.app?screen=SETTINGS
-System Page | https://matsuura-gtech-30i.netlify.app?screen=SYSTEM
-Messages Page | https://matsuura-gtech-30i.netlify.app?screen=MESSAGES
-Graph Page | https://matsuura-gtech-30i.netlify.app?screen=GRAPH
-Handyman Page (Custom 1) | https://matsuura-gtech-30i.netlify.app?screen=CUSTOM_1
-Webapp Settings (Custom 2) | https://matsuura-gtech-30i.netlify.app?screen=CUSTOM_2
+Program Page | [?screen=PROGRAM][LINK__PROGRAM_PAGE]
+Position Page | [?screen=POSITION](https://matsuura-gtech-30i.netlify.app?screen=POSITION)
+Offset Page | [?screen=OFFSET](https://matsuura-gtech-30i.netlify.app?screen=OFFSET)
+Settings Page | [?screen=SETTINGS](https://matsuura-gtech-30i.netlify.app?screen=SETTINGS)
+System Page | [?screen=SYSTEM](https://matsuura-gtech-30i.netlify.app?screen=SYSTEM)
+Messages Page | [?screen=MESSAGES](https://matsuura-gtech-30i.netlify.app?screen=MESSAGES)
+Graph Page | [?screen=GRAPH](https://matsuura-gtech-30i.netlify.app?screen=GRAPH)
+Handyman Page (Custom 1) | [?screen=CUSTOM_1](https://matsuura-gtech-30i.netlify.app?screen=CUSTOM_1)
+Webapp Settings (Custom 2) | [?screen=CUSTOM_2](https://matsuura-gtech-30i.netlify.app?screen=CUSTOM_2)
+
+# Features so far...
+ - softkey `a9` will toggle the machine controls on/off
+ - the mode keys in the controls should reflect in the [program page][LINK__PROGRAM_PAGE]
 
 # Reference Images
 
@@ -27,3 +31,5 @@ Webapp Settings (Custom 2) | https://matsuura-gtech-30i.netlify.app?screen=CUSTO
 
 ## Controls
 [![Controls](./public/img/controls.jpg)](https://github.com/kevinkhill/matsuura-gtech-30i/blob/main/public/img/controls.jpg?raw=true)
+
+[LINK__PROGRAM_PAGE]: https://matsuura-gtech-30i.netlify.app?screen=PROGRAM "Program Page"

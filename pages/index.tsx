@@ -8,12 +8,9 @@ import Keyboard from "@/components/Keyboard/Keyboard";
 import KeyMap from "@/components/Keyboard/KeyMap";
 import Monitor from "@/components/Monitor/Monitor";
 import OperatingSystem from "@/components/OS/OperatingSystem";
+import useToggle from "@/core/hooks/useToggle";
 import { DisplayState, DisplayStateStrings } from "@/types/DisplayState";
 import { KeyValues } from "@/types/keys";
-
-const onModeChange = (mode: string) => {
-  console.log("handle mode changed:", mode);
-};
 
 const onHandleIncrementChange = (selectedInc: string) => {
   console.log("handle increment changed:", selectedInc);
@@ -23,12 +20,23 @@ const onHandleAxisChange = (selectedAxis: string) => {
   console.log("handle axis changed:", selectedAxis);
 };
 
-const onSoftKey = (key: string) => {
-  console.log("softkey:", key);
-};
-
 export default function Home() {
-  const [showControls, setShowControls] = useState(false);
+  const [machineMode, setMachineMode] = useState("MEM");
+  const [showControls, toggleShowControls] = useToggle(false);
+
+  const onModeChange = (mode: string) => {
+    // eslint-disable-next-line no-alert
+    alert(`machine mode changed to ${mode}`);
+    setMachineMode(mode);
+  };
+
+  const onSoftKey = (key: string) => {
+    if (key === "a9") {
+      toggleShowControls();
+    }
+    console.log("softkey:", key);
+  };
+
   const [displayState, setDisplayState] =
     useState<DisplayStateStrings>("POWER_OFF");
 
@@ -68,8 +76,6 @@ export default function Home() {
     console.log({ displayState });
   }, [displayState]);
 
-  const os = <OperatingSystem displayState={displayState} />;
-
   return (
     <div className="container m-auto bg-black">
       <Head>
@@ -78,7 +84,15 @@ export default function Home() {
       </Head>
 
       <div className="pt-1 divide-y-2 divide-black">
-        <Monitor onSoftKey={onSoftKey} content={os} />
+        <Monitor
+          onSoftKey={onSoftKey}
+          content={
+            <OperatingSystem
+              machineMode={machineMode}
+              displayState={displayState}
+            />
+          }
+        />
         <Keyboard onKeypress={onKeyboardKey} />
         {showControls && (
           <MachineControl

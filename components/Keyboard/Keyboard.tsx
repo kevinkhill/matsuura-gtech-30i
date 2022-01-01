@@ -4,6 +4,9 @@ import KeyboardKey from "./KeyboardKey";
 import KeyMap from "./KeyMap";
 
 export default function Keyboard({ onKeypress }) {
+  // const padding = "px-32 py-24";
+  const padding = "px-32 py-5";
+
   const PlainKey = ({ value }) => (
     <KeyboardKey onClick={onKeypress} value={value} />
   );
@@ -11,9 +14,6 @@ export default function Keyboard({ onKeypress }) {
   const WhiteKey = ({ value }) => (
     <KeyboardKey white onClick={onKeypress} value={value} />
   );
-
-  // const padding = "px-32 py-24";
-  const padding = "px-24 py-5";
 
   return (
     <div className={`${padding} text-xs panel-frame`}>
@@ -48,24 +48,22 @@ export default function Keyboard({ onKeypress }) {
           <WhiteKey value={KeyMap.H} />
           <WhiteKey value={KeyMap.B} />
         </div>
-        <div className="className">
-          <div className="grid grid-cols-3 gap-1">
-            <WhiteKey value={KeyMap.SEVEN} />
-            <WhiteKey value={KeyMap.EIGHT} />
-            <WhiteKey value={KeyMap.NINE} />
-            <WhiteKey value={KeyMap.FOUR} />
-            <WhiteKey value={KeyMap.FIVE} />
-            <WhiteKey value={KeyMap.SIX} />
-            <WhiteKey value={KeyMap.ONE} />
-            <WhiteKey value={KeyMap.TWO} />
-            <WhiteKey value={KeyMap.THREE} />
-            <WhiteKey value={KeyMap.DASH} />
-            <WhiteKey value={KeyMap.ZERO} />
-            <WhiteKey value={KeyMap.DECIMAL} />
-            <WhiteKey value={KeyMap.BLOCK_SKIP} />
-            <WhiteKey value={KeyMap.EOB} />
-            <PlainKey value={KeyMap.CANCEL} />
-          </div>
+        <div className="grid grid-cols-3 gap-1">
+          <WhiteKey value={KeyMap.SEVEN} />
+          <WhiteKey value={KeyMap.EIGHT} />
+          <WhiteKey value={KeyMap.NINE} />
+          <WhiteKey value={KeyMap.FOUR} />
+          <WhiteKey value={KeyMap.FIVE} />
+          <WhiteKey value={KeyMap.SIX} />
+          <WhiteKey value={KeyMap.ONE} />
+          <WhiteKey value={KeyMap.TWO} />
+          <WhiteKey value={KeyMap.THREE} />
+          <WhiteKey value={KeyMap.DASH} />
+          <WhiteKey value={KeyMap.ZERO} />
+          <WhiteKey value={KeyMap.DECIMAL} />
+          <WhiteKey value={KeyMap.BLOCK_SKIP} />
+          <WhiteKey value={KeyMap.EOB} />
+          <PlainKey value={KeyMap.CANCEL} />
         </div>
         <div className="flex flex-col gap-2">
           <PlainKey value={KeyMap.ALTER} />
@@ -77,24 +75,22 @@ export default function Keyboard({ onKeypress }) {
         </div>
       </div>
       <div className="flex flex-row justify-around flex-1 mt-5">
-        <div>
-          <div className="grid grid-cols-2 grid-rows-2 gap-1">
-            <PlainKey value={KeyMap.CTRL} />
-            <PlainKey value={KeyMap.AUX} />
-            <PlainKey value={KeyMap.ALT} />
-            <PlainKey value={KeyMap.TAB} />
-          </div>
+        <div className="grid grid-cols-2 grid-rows-2 gap-1">
+          <PlainKey value={KeyMap.CTRL} />
+          <PlainKey value={KeyMap.AUX} />
+          <PlainKey value={KeyMap.ALT} />
+          <PlainKey value={KeyMap.TAB} />
         </div>
 
         <div className="grid grid-flow-col grid-cols-4 grid-rows-2 gap-1">
           <PlainKey value={KeyMap.PAGE_UP} />
           <PlainKey value={KeyMap.PAGE_DOWN} />
-          <div className="row-span-2">
+          <div className="flex items-center row-span-2">
             <PlainKey value={KeyMap.LEFT} />
           </div>
           <PlainKey value={KeyMap.UP} />
           <PlainKey value={KeyMap.DOWN} />
-          <div className="row-span-2">
+          <div className="flex items-center row-span-2">
             <PlainKey value={KeyMap.RIGHT} />
           </div>
         </div>

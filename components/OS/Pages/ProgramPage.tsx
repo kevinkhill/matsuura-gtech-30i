@@ -1,44 +1,26 @@
-import clsx from "clsx";
 import React, { useState } from "react";
 
-import { nLine, zeroPad } from "@/core/util";
+import { zeroPad } from "@/core/util";
 import { Position } from "@/types/position";
 
 import BoxHeading from "../Layout/BoxHeading";
-import MenuBar from "../MenuBar";
-import TopBar from "../TopBar";
-// import MenuContainer from "../MenuContainer";
-import CurrentCommands from "./Program/CurrentCommands";
+import ActiveCodes from "./Program/ActiveCodes";
 import CursorInputField from "./Program/CursorInputField";
 import GenericReadout from "./Program/GenericReadout";
 import LoadMeter from "./Program/LoadMeter";
+import MenuBar from "./Program/MenuBar";
+import ProgramDisplay from "./Program/ProgramDisplay";
+import StatusBar from "./Program/StatusBar";
 import WellSpacer from "./Program/WellSpacer";
 
 interface ProgramPageProps {
   program: string[];
+  machineMode: string;
+  // cursorLine: number;
 }
 
-const ProgramDisplay = ({ lines }: { lines: string[] }) => {
-  return (
-    <div className="p-1 border-t border-b border-l border-r border-l-gray-600 border-t-gray-600 border-r-gray-300 border-b-gray-300">
-      {lines.map((line, i) => {
-        const classes = [];
-
-        if (i === 0) {
-          classes.push("bg-yellow-300");
-        }
-
-        return (
-          <p className={clsx(classes)} key={nLine(i)}>
-            {line}
-          </p>
-        );
-      })}
-    </div>
-  );
-};
-
-const ProgramPage = ({ program }: ProgramPageProps) => {
+const ProgramPage = ({ program, machineMode }: ProgramPageProps) => {
+  const cursorLine = 1;
   const [menuItems, setMenuItems] = useState([
     "REWIND",
     "O LIST",
@@ -53,8 +35,7 @@ const ProgramPage = ({ program }: ProgramPageProps) => {
   ]);
 
   const [path, setPath] = useState("CNC_MEM/USER");
-  const [title, setTitle] = useState("MANUAL GUIDE");
-  const [curentMode, setCurrentMode] = useState("MEM");
+  const [title, setTitle] = useState(`MANUAL GUIDE (${path})`);
   const [feedrateMode, setFeedrateMode] = useState("INCH/MIN");
   const [programNum, setProgramNum] = useState(8100);
   const [currentTool, setCurrentTool] = useState(0);
@@ -110,7 +91,7 @@ const ProgramPage = ({ program }: ProgramPageProps) => {
 
   return (
     <div className="flex flex-col flex-grow text-sm text-black bg-gray-300 font-lcd">
-      <TopBar mode={curentMode} title={title} path={path} />
+      <StatusBar mode={machineMode} title={title} />
       <div id="display-container" className="flex-grow">
         <div className="flex flex-col border-r border-black main-pos">
           <GenericReadout
@@ -161,7 +142,7 @@ const ProgramPage = ({ program }: ProgramPageProps) => {
         </div>
         <div className="flex w-4 border-t border-l border-black spacer" />
         <div className="flex border-l border-black commands">
-          <CurrentCommands
+          <ActiveCodes
             nLine={currentN}
             programNum={programNum}
             currentD={currentD}
@@ -175,7 +156,7 @@ const ProgramPage = ({ program }: ProgramPageProps) => {
         </div>
         <div className="bg-gray-400 program">
           <BoxHeading text={`O${programNum}`} subText={charArrows} />
-          <ProgramDisplay lines={program} />
+          <ProgramDisplay cursorLine={cursorLine} lines={program} />
         </div>
         <div className="flex flex-col border-t border-black curr-mach">
           <BoxHeading text="CURRENT MACHINING" />
