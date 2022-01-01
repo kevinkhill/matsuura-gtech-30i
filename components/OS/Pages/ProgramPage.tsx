@@ -14,6 +14,10 @@ import GenericReadout from "./Program/GenericReadout";
 import LoadMeter from "./Program/LoadMeter";
 import WellSpacer from "./Program/WellSpacer";
 
+interface ProgramPageProps {
+  program: string[];
+}
+
 const ProgramDisplay = ({ lines }: { lines: string[] }) => {
   return (
     <div className="p-1 border-t border-b border-l border-r border-l-gray-600 border-t-gray-600 border-r-gray-300 border-b-gray-300">
@@ -34,7 +38,7 @@ const ProgramDisplay = ({ lines }: { lines: string[] }) => {
   );
 };
 
-const ProgramPage = () => {
+const ProgramPage = ({ program }: ProgramPageProps) => {
   const [menuItems, setMenuItems] = useState([
     "REWIND",
     "O LIST",
@@ -60,12 +64,6 @@ const ProgramPage = () => {
   const [currentS, setCurrentS] = useState(15000);
   const [currentM, setCurrentM] = useState(5);
   const [currentFeedrate, setCurrentFeedrate] = useState(0.0);
-  const [loadedProgram, setLoadedProgram] = useState<string[]>([
-    "G0 G90 G54",
-    "X1.2 Y3.4",
-    "G43 H12 Z1.0",
-    "Z1.0"
-  ]);
 
   const [spindleRpms, setSpindleRpms] = useState(0);
   const [spindleRpmPercent, setSpindleRpmPercent] = useState(0);
@@ -177,7 +175,7 @@ const ProgramPage = () => {
         </div>
         <div className="bg-gray-400 program">
           <BoxHeading text={`O${programNum}`} subText={charArrows} />
-          <ProgramDisplay lines={loadedProgram} />
+          <ProgramDisplay lines={program} />
         </div>
         <div className="flex flex-col border-t border-black curr-mach">
           <BoxHeading text="CURRENT MACHINING" />

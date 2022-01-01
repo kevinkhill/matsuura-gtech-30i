@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import { match } from "ts-pattern";
 
 import { DisplayStateStrings } from "@/types/DisplayState";
 
@@ -17,46 +18,44 @@ interface OsProps {
   displayState: DisplayStateStrings;
 }
 
-interface OsState {
-  messages: [];
-}
+const OperatingSystem = ({ displayState }: OsProps) => {
+  const [messages, setMessages] = useState(["Testing", "Hi!", "Tacos"]);
+  const [program, setProgram] = useState([
+    "%",
+    "O1234 (SIMPLE)",
+    "",
+    `N43 ( #14 - .182" DRILL, CARB, TSC )`,
+    "T43 M6",
+    `M01 ( #14 - .182" DRILL, CARB, TSC )`,
+    "G0 G90 G55",
+    "X1.75 Y.19 S10495 M3",
+    "M50 (TSC COOLANT ON)",
+    "G4 X2.",
+    "G43 H43 Z1. T44",
+    "G98 G81 Z-.5631 R.1 F83.96",
+    "X.75",
+    "Y1.81",
+    "X1.75",
+    "G80",
+    "M5",
+    "G91 G28 Z0.",
+    "M30",
+    "%"
+  ]);
 
-class OperatingSystem extends Component<OsProps, OsState> {
-  state: OsState = {
-    messages: []
-  };
-
-  render() {
-    const { messages } = this.state;
-    const { displayState } = this.props;
-
-    switch (displayState) {
-      case "BOOTING":
-        return <BootScreen />;
-      case "PROGRAM":
-        return <ProgramPage />;
-      case "POSITION":
-        return <PositionPage />;
-      case "OFFSET":
-        return <OffsetsPage />;
-      case "SETTINGS":
-        return <SettingsPage />;
-      case "MESSAGES":
-        return <MessagesPage messages={messages} />;
-      case "SYSTEM":
-        return <SystemPage />;
-      case "GRAPH":
-        return <GraphPage />;
-      case "CUSTOM_1":
-        return <HandyManPage />;
-      case "CUSTOM_2":
-        return <AppSettings messages={[]} />;
-      case "POWER_OFF":
-        return <h1>Power is off...</h1>;
-      default:
-        return <h1 className="text-red-600">EEEEEEEEERRRRRRRRoOOOR</h1>;
-    }
-  }
-}
+  return match(displayState)
+    .with("BOOTING", () => <BootScreen />)
+    .with("PROGRAM", () => <ProgramPage program={program} />)
+    .with("POSITION", () => <PositionPage />)
+    .with("OFFSET", () => <OffsetsPage />)
+    .with("SETTINGS", () => <SettingsPage />)
+    .with("MESSAGES", () => <MessagesPage messages={messages} />)
+    .with("SYSTEM", () => <SystemPage />)
+    .with("GRAPH", () => <GraphPage />)
+    .with("CUSTOM_1", () => <HandyManPage />)
+    .with("CUSTOM_2", () => <AppSettings messages={[]} />)
+    .with("POWER_OFF", () => <h1>Power is off...</h1>)
+    .exhaustive();
+};
 
 export default OperatingSystem;
