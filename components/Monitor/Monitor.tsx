@@ -23,7 +23,7 @@ export default function Monitor({ content, onSoftKey }: MonitorProps) {
         <div className="mb-8">
           <TitleBar />
         </div>
-        <div className="flex flex-row gap-2 h-[500px]">
+        <div className="flex flex-row h-[550px] gap-2">
           <div className="flex flex-grow ml-8 bg-black screen-border">
             {content}
           </div>

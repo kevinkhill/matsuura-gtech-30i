@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import usePosition from "@/core/hooks/usePosition";
 import { zeroPad } from "@/core/util";
 import { Position } from "@/types/position";
 
@@ -20,7 +21,9 @@ interface ProgramPageProps {
 }
 
 const ProgramPage = ({ program, machineMode }: ProgramPageProps) => {
-  const cursorLine = 1;
+  const cursorLine = 0;
+  const [path, setPath] = useState("CNC_MEM/USER");
+  const [title, setTitle] = useState(`MANUAL GUIDE (${path})`);
   const [menuItems, setMenuItems] = useState([
     "REWIND",
     "O LIST",
@@ -34,8 +37,6 @@ const ProgramPage = ({ program, machineMode }: ProgramPageProps) => {
     "SIMLAT"
   ]);
 
-  const [path, setPath] = useState("CNC_MEM/USER");
-  const [title, setTitle] = useState(`MANUAL GUIDE (${path})`);
   const [feedrateMode, setFeedrateMode] = useState("INCH/MIN");
   const [programNum, setProgramNum] = useState(8100);
   const [currentTool, setCurrentTool] = useState(0);
@@ -56,28 +57,18 @@ const ProgramPage = ({ program, machineMode }: ProgramPageProps) => {
     1, 17, 40, 54, 80, 49, 90, 98, 69, 13.1
   ]);
 
-  const [position, setPosition] = useState<Position>({
+  const [position, setPosition] = usePosition({
     X: 9.9137,
     Y: 15.9736,
     Z: 19.4815,
     B: 179.999
   });
 
+  const [distToGo, setDistToGo] = usePosition();
   const [distToGoCmd, setDistToGoCmd] = useState(1);
-  const [distToGo, setDistToGo] = useState<Position>({
-    X: 0.0,
-    Y: 0.0,
-    Z: 0.0,
-    B: 0.0
-  });
 
+  const [nextDist, setNextDist] = usePosition();
   const [nextDistCmd, setNextDistCmd] = useState(1);
-  const [nextDist, setNextDist] = useState<Position>({
-    X: 0.0,
-    Y: 0.0,
-    Z: 0.0,
-    B: 0.0
-  });
 
   // useEffect(() => {
   //   const id = setInterval(() => {
@@ -92,7 +83,7 @@ const ProgramPage = ({ program, machineMode }: ProgramPageProps) => {
   return (
     <div className="flex flex-col flex-grow text-sm text-black bg-gray-300 font-lcd">
       <StatusBar mode={machineMode} title={title} />
-      <div id="display-container" className="flex-grow">
+      <div id="program-screen" className="flex-grow">
         <div className="flex flex-col border-r border-black main-pos">
           <GenericReadout
             title="ACTUAL POS. (ABS.)"

@@ -1,0 +1,16 @@
+@font-face {
+  font-family: "ModeNine";
+  src: url("/fonts/ModeNine.woff2") format("woff2"),
+    url("/fonts/ModeNine.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-lcd {
+  font-family: "ModeNine", monospace;
+}
+
+.font-mono-dro {
+  font-family: "Syne Mono", monospace;
+}

@@ -1,0 +1,43 @@
+#program-screen {
+  display: grid;
+  width: 100%;
+  //   height: 250px;
+  grid-template-areas:
+    "main-pos dist-2-go speed-feed speed-feed commands"
+    "main-pos next-dist spacer program program"
+    "curr-mach curr-mach curr-mach program program";
+  grid-template-rows: 150px 1fr 70px;
+  grid-template-columns: 150px 1fr;
+
+  > .main-pos {
+    grid-area: main-pos;
+  }
+
+  > .speed-feed {
+    grid-area: speed-feed;
+  }
+
+  > .commands {
+    grid-area: commands;
+  }
+
+  > .spacer {
+    grid-area: spacer;
+  }
+
+  > .curr-mach {
+    grid-area: curr-mach;
+  }
+
+  > .program {
+    grid-area: program;
+  }
+
+  > .dist-2-go {
+    grid-area: dist-2-go;
+  }
+
+  > .next-dist {
+    grid-area: next-dist;
+  }
+}

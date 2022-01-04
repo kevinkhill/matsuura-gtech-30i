@@ -1,5 +1,8 @@
 import "tailwindcss/tailwind.css";
+import "../styles/fonts.css";
+import "../styles/text.css";
 import "../styles/globals.css";
+import "../styles/program-screen.scss";
 
 import React from "react";
 

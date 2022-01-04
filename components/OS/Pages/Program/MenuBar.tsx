@@ -3,7 +3,7 @@ import React from "react";
 const MenuButton = item => (
   <div
     key={item}
-    className="flex flex-col items-center grow raised-button-edge outline-1-black"
+    className="flex flex-col items-center w-8 grow raised-button-edge outline-1-black"
   >
     <div className="h-8 grow">
       <div> </div>

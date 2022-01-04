@@ -1,28 +1,11 @@
-@font-face {
-  font-family: "ModeNine";
-  src: url("/fonts/ModeNine.woff2") format("woff2"),
-    url("/fonts/ModeNine.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
 body {
   background-color: #000;
-}
-
-.font-lcd {
-  font-family: "ModeNine", monospace;
 }
 
 .outline-1-black {
   box-shadow: 0 0 0 1px black;
   /* outline: 1px solid black; */
 }
-
-/*
-.menu-boxes > div {
-} */
 
 .raised-button-edge {
   @apply border-t-2 border-t-gray-200
@@ -34,10 +17,6 @@ body {
 .panel-frame {
   @apply rounded;
   background-color: #555;
-}
-
-.font-mono-dro {
-  font-family: "Syne Mono", monospace;
 }
 
 .raised-border {
@@ -69,54 +48,4 @@ body {
 
 .bottom-right-shadow {
   @apply border-b border-b-slate-800 border-r border-r-slate-800;
-}
-
-.text-red-glow {
-  @apply text-red-300 bg-gray-800 px-3;
-  text-shadow: 0 0 2px red, 0 0 3px red, 0 0 5px red, 0 0 20px red, 0 0 60px red,
-    0 0 100px red;
-}
-
-#display-container {
-  display: grid;
-  width: 100%;
-  height: 250px;
-  grid-template-areas:
-    "main-pos dist-2-go speed-feed speed-feed commands"
-    "main-pos next-dist spacer program program"
-    "curr-mach curr-mach curr-mach program program";
-  grid-template-rows: 150px 1fr 70px;
-  grid-template-columns: 150px 1fr;
-}
-
-#display-container > .main-pos {
-  grid-area: main-pos;
-}
-
-#display-container > .speed-feed {
-  grid-area: speed-feed;
-}
-
-#display-container > .commands {
-  grid-area: commands;
-}
-
-#display-container > .spacer {
-  grid-area: spacer;
-}
-
-#display-container > .curr-mach {
-  grid-area: curr-mach;
-}
-
-#display-container > .program {
-  grid-area: program;
-}
-
-#display-container > .dist-2-go {
-  grid-area: dist-2-go;
-}
-
-#display-container > .next-dist {
-  grid-area: next-dist;
 }

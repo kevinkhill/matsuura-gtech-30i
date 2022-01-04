@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { match } from "ts-pattern";
 
-import { DisplayStateStrings } from "@/types/DisplayState";
+import { DisplayState, DisplayStateStrings } from "@/types/DisplayState";
 
 import AppSettings from "./Pages/AppSettings";
 import GraphPage from "./Pages/GraphPage";
@@ -44,13 +44,13 @@ const OperatingSystem = ({ displayState, machineMode }: OsProps) => {
     "%"
   ]);
 
-  return match(displayState)
+  return match<keyof typeof DisplayState>(displayState)
     .with("BOOTING", () => <BootScreen />)
     .with("PROGRAM", () => (
       <ProgramPage program={program} machineMode={machineMode} />
     ))
     .with("POSITION", () => <PositionPage />)
-    .with("OFFSET", () => <OffsetsPage />)
+    .with("OFFSET", () => <OffsetsPage machineMode={machineMode} />)
     .with("SETTINGS", () => <SettingsPage />)
     .with("MESSAGES", () => <MessagesPage messages={messages} />)
     .with("SYSTEM", () => <SystemPage />)

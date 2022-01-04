@@ -1,3 +1,8 @@
 export type AxisRecord<T extends string> = Record<T, number>;
 
-export type Position = Partial<AxisRecord<"X" | "Y" | "Z" | "B">>;
+export interface Position {
+  X?: number;
+  Y?: number;
+  Z?: number;
+  B?: number;
+}
