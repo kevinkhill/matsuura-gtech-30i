@@ -2,14 +2,13 @@ import React, { useState } from "react";
 
 import usePosition from "@/core/hooks/usePosition";
 import { zeroPad } from "@/core/util";
-import { Position } from "@/types/position";
+import BoxHeading from "@/components/OS/Layout/BoxHeading";
+import MenuBar from "@/components/OS/Layout/MenuBar";
 
-import BoxHeading from "../Layout/BoxHeading";
 import ActiveCodes from "./Program/ActiveCodes";
 import CursorInputField from "./Program/CursorInputField";
 import GenericReadout from "./Program/GenericReadout";
 import LoadMeter from "./Program/LoadMeter";
-import MenuBar from "./Program/MenuBar";
 import ProgramDisplay from "./Program/ProgramDisplay";
 import StatusBar from "./Program/StatusBar";
 import WellSpacer from "./Program/WellSpacer";

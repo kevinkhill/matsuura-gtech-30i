@@ -4,12 +4,17 @@ import "../styles/text.css";
 import "../styles/globals.css";
 import "../styles/program-screen.scss";
 
-import React from "react";
+import React, { FC } from "react";
 
+import { DataStoreProvider } from "../store/context";
 import { AppProps } from "../types";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
-}
+const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
+  return (
+    <DataStoreProvider>
+      <Component {...pageProps} />
+    </DataStoreProvider>
+  );
+};
 
 export default MyApp;

@@ -97,7 +97,7 @@
         "map": [
           ["@/core", "./core"],
           ["@/types", "./types"],
-          ["@/public", "./public"],
+          ["@/store", "./store"],
           ["@/components", "./components"]
           // Add more here
         ],

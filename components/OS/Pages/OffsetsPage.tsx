@@ -1,51 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-import { useCurrentTime, usePosition } from "@/core/hooks";
+import Clock from "@/components/OS/Layout/Clock";
+import MenuBar from "@/components/OS/Layout/MenuBar";
+import { usePosition } from "@/core/hooks";
 import OffsetFactory from "@/core/OffsetFactory";
-import { intRange, toFixed, zeroPad } from "@/core/util";
-import { OffsetRegister } from "@/types/offsets";
+import { zeroPad } from "@/core/util";
 
+import OffsetGridRow from "./OffsetGridRow";
 import PositionReadout from "./Offsets/PositionReadout";
-import MenuBar from "./Program/MenuBar";
 
 interface OffsetsPageProps {
   machineMode: string;
-}
-
-interface OffsetGridRowProps {
-  register: OffsetRegister;
-  // lengthGeom?: number;
-  // lengthWear?: number;
-  // diamGeom?: number;
-  // diamWear?: number;
+  showClockSeconds?: boolean;
 }
 
 export const border =
   "border-t border-b border-l border-r border-b-black border-r-black border-t-white border-l-white";
 
-const OffsetGridRow = ({ register }: OffsetGridRowProps) => {
-  const { index, lengthGeom, lengthWear, diamGeom, diamWear } = register;
-
-  const ValueDisplay = ({ value = 0, precision = 4 }) => (
-    <div className="pl-5 pr-0.5 text-right bg-white border-t border-l justif border-t-gray-700 border-l-gray-700">
-      {toFixed(value, precision)}
-    </div>
-  );
-
-  return (
-    <div className="flex flex-row justify-around flex-grow gap-1 place-items-center">
-      <div className="flex-shrink text-blue-700">{zeroPad(index, 3)}</div>
-      <ValueDisplay value={lengthGeom} />
-      <ValueDisplay value={lengthWear} />
-      <ValueDisplay value={diamGeom} />
-      <ValueDisplay value={diamWear} />
-    </div>
-  );
-};
-
-const OffsetsPage = ({ machineMode }: OffsetsPageProps) => {
-  const [currentTime, setCurrentTime] = useCurrentTime({ seconds: true });
-
+const OffsetsPage = ({
+  machineMode,
+  showClockSeconds = true
+}: OffsetsPageProps) => {
   const [machinePos, setMachinePos] = usePosition();
   const [relativePos, setRelativePos] = usePosition();
   const [absolutePos, setAbsolutePos] = usePosition();
@@ -72,10 +47,10 @@ const OffsetsPage = ({ machineMode }: OffsetsPageProps) => {
     "(OPRT)"
   ]);
 
-  useEffect(() => {
-    const id = setInterval(() => setCurrentTime(new Date()), 1000);
-    return () => clearInterval(id);
-  });
+  // useEffect(() => {
+  //   const id = setInterval(() => setCurrentTime(new Date()), 1000);
+  //   return () => clearInterval(id);
+  // }, []);
 
   return (
     <div className="flex flex-col flex-grow text-sm text-black bg-gray-400 font-lcd">
@@ -126,7 +101,9 @@ const OffsetsPage = ({ machineMode }: OffsetsPageProps) => {
               <div>***</div>
             </div>
             <div className={`w-8 ${border}`} />
-            <div className={`px-2 ${border}`}>{currentTime}</div>
+            <div className={`px-2 ${border}`}>
+              <Clock seconds={showClockSeconds} />
+            </div>
             <div className={`w-16 ${border}`} />
           </div>
         </div>

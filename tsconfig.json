@@ -7,6 +7,7 @@
     "paths": {
       "@/core/*": ["core/*"],
       "@/types/*": ["types/*"],
+      "@/store/*": ["store/*"],
       "@/components/*": ["components/*"]
     },
     "moduleResolution": "node",
