@@ -6,8 +6,8 @@ import "../styles/program-screen.scss";
 
 import React, { FC } from "react";
 
-import { DataStoreProvider } from "../store/context";
-import { AppProps } from "../types";
+import { DataStoreProvider } from "@/core/store/context";
+import { AppProps } from "@/types/app";
 
 const MyApp: FC<AppProps> = ({ Component, pageProps }: AppProps) => {
   return (

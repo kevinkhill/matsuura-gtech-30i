@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import Clock from "@/components/OS/Layout/Clock";
 import MenuBar from "@/components/OS/Layout/MenuBar";
+import { useSoftKeyContext } from "@/core/context/SoftKeyContext";
 import { usePosition } from "@/core/hooks";
 import OffsetFactory from "@/core/OffsetFactory";
 import { zeroPad } from "@/core/util";
 
 import OffsetGridRow from "./OffsetGridRow";
-import PositionReadout from "./Offsets/PositionReadout";
+import PositionReadout from "./PositionReadout";
 
 interface OffsetsPageProps {
   machineMode: string;
@@ -21,6 +22,8 @@ const OffsetsPage = ({
   machineMode,
   showClockSeconds = true
 }: OffsetsPageProps) => {
+  const context = useSoftKeyContext();
+
   const [machinePos, setMachinePos] = usePosition();
   const [relativePos, setRelativePos] = usePosition();
   const [absolutePos, setAbsolutePos] = usePosition();
@@ -34,7 +37,7 @@ const OffsetsPage = ({
     OffsetFactory.createRegisterRange(1, 16)
   );
 
-  const [menuItems, setMenuItems] = useState([
+  const items = [
     "",
     "",
     "",
@@ -45,12 +48,9 @@ const OffsetsPage = ({
     " WORK ",
     "",
     "(OPRT)"
-  ]);
+  ];
 
-  // useEffect(() => {
-  //   const id = setInterval(() => setCurrentTime(new Date()), 1000);
-  //   return () => clearInterval(id);
-  // }, []);
+  context.loadMenu(items);
 
   return (
     <div className="flex flex-col flex-grow text-sm text-black bg-gray-400 font-lcd">
@@ -108,7 +108,7 @@ const OffsetsPage = ({
           </div>
         </div>
       </div>
-      <MenuBar menuItems={menuItems} />
+      <MenuBar menuItems={context.menuItems} />
     </div>
   );
 };

@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 
-import usePosition from "@/core/hooks/usePosition";
-import { zeroPad } from "@/core/util";
 import BoxHeading from "@/components/OS/Layout/BoxHeading";
 import MenuBar from "@/components/OS/Layout/MenuBar";
+import usePosition from "@/core/hooks/usePosition";
+import { zeroPad } from "@/core/util";
 
-import ActiveCodes from "./Program/ActiveCodes";
-import CursorInputField from "./Program/CursorInputField";
-import GenericReadout from "./Program/GenericReadout";
-import LoadMeter from "./Program/LoadMeter";
-import ProgramDisplay from "./Program/ProgramDisplay";
-import StatusBar from "./Program/StatusBar";
-import WellSpacer from "./Program/WellSpacer";
+import ActiveCodes from "./ActiveCodes";
+import CursorInputField from "./CursorInputField";
+import GenericReadout from "./GenericReadout";
+import LoadMeter from "./LoadMeter";
+import ProgramDisplay from "./ProgramDisplay";
+import StatusBar from "./StatusBar";
+import WellSpacer from "./WellSpacer";
 
 interface ProgramPageProps {
   program: string[];

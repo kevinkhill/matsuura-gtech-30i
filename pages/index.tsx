@@ -21,12 +21,16 @@ const onHandleAxisChange = (selectedAxis: string) => {
 };
 
 export default function Home() {
+  const router = useRouter();
+
   const [machineMode, setMachineMode] = useState("MEM");
   const [showControls, toggleShowControls] = useToggle(false);
+  const [displayState, setDisplayState] =
+    useState<DisplayStateStrings>("POWER_OFF");
+
+  const initScreen = router.query?.screen as DisplayStateStrings;
 
   const onModeChange = (mode: string) => {
-    // eslint-disable-next-line no-alert
-    alert(`machine mode changed to ${mode}`);
     setMachineMode(mode);
   };
 
@@ -34,22 +38,9 @@ export default function Home() {
     if (key === "a9") {
       toggleShowControls();
     }
+
     console.log("softkey:", key);
   };
-
-  const [displayState, setDisplayState] =
-    useState<DisplayStateStrings>("POWER_OFF");
-
-  /**
-   * If there route param `screen=PROGRAM` then set it as the initial screen
-   */
-  const router = useRouter();
-  const initScreen = router.query?.screen as DisplayStateStrings;
-  useEffect(() => {
-    if (Object.keys(DisplayState).includes(initScreen)) {
-      setDisplayState(initScreen);
-    }
-  }, [initScreen]);
 
   const onKeyboardKey = (key: KeyValues) => {
     console.log("Keyboard Key Pressed:", key);
@@ -73,8 +64,14 @@ export default function Home() {
   };
 
   useEffect(() => {
-    console.log({ displayState });
-  }, [displayState]);
+    if (Object.keys(DisplayState).includes(initScreen)) {
+      setDisplayState(initScreen);
+    }
+  }, [initScreen]);
+
+  // useEffect(() => {
+  //   router.push(`?screen=${displayState}`);
+  // }, [displayState, router]);
 
   return (
     <div className="container m-auto bg-black">

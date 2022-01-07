@@ -11,7 +11,7 @@ export interface OffsetGridRowProps {
   // diamWear?: number;
 }
 
-export const OffsetGridRow = ({ register }: OffsetGridRowProps) => {
+const OffsetGridRow = ({ register }: OffsetGridRowProps) => {
   const { index, lengthGeom, lengthWear, diamGeom, diamWear } = register;
 
   const ValueDisplay = ({ value = 0, precision = 4 }) => (
