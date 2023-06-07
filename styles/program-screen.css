@@ -1,7 +1,7 @@
 #program-screen {
   display: grid;
   width: 100%;
-  //   height: 250px;
+  /* height: 250px; */
   grid-template-areas:
     "main-pos dist-2-go speed-feed speed-feed commands"
     "main-pos next-dist spacer program program"
@@ -9,35 +9,35 @@
   grid-template-rows: 150px 1fr 70px;
   grid-template-columns: 150px 1fr;
 
-  > .main-pos {
+  & > .main-pos {
     grid-area: main-pos;
   }
 
-  > .speed-feed {
+  & > .speed-feed {
     grid-area: speed-feed;
   }
 
-  > .commands {
+  & > .commands {
     grid-area: commands;
   }
 
-  > .spacer {
+  & > .spacer {
     grid-area: spacer;
   }
 
-  > .curr-mach {
+  & > .curr-mach {
     grid-area: curr-mach;
   }
 
-  > .program {
+  & > .program {
     grid-area: program;
   }
 
-  > .dist-2-go {
+  & > .dist-2-go {
     grid-area: dist-2-go;
   }
 
-  > .next-dist {
+  & > .next-dist {
     grid-area: next-dist;
   }
 }

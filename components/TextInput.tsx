@@ -8,9 +8,7 @@ interface Props {
 
 const TextInput = ({ rows = 4, cols = 80, onChange }: Props) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [input, setInput] = useState({
-    input: "React"
-  });
+  const [input, setInput] = useState("React");
 
   return (
     <div>
