@@ -1,13 +1,13 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "dev": "next dev",
+    "format": "prettier --ignore-path .prettierignore --write .",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx . --report-unused-disable-directives",
     "lint-fix": "yarn run lint -- --fix ",
-    "format": "prettier --ignore-path .prettierignore --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start": "next start"
   },
   "lint-staged": {
     "*js": [
@@ -56,5 +56,6 @@
     "lint-staged": "^11.2.6",
     "postcss": "^8.4.1",
     "prettier": "^2.4.1"
-  }
+  },
+  "packageManager": "yarn@1.22.19"
 }
