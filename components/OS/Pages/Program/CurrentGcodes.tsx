@@ -1,4 +1,4 @@
-import { chunk } from "lodash";
+import chunk from "lodash-es/chunk";
 import React from "react";
 
 const GcodeRow = ({ codes }) => {
